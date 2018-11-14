@@ -1,20 +1,21 @@
-export default class Controller {
+class Controller {
 
     constructor(model) {
         this.model = model;
     }
 
-    searchVideo(accessToken) {
-            fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&q=elvis", {
-                method: 'GET',
-                headers: new Headers({'Authorization': 'Bearer ' + accessToken})
+    searchVideo(accessToken, searchCriteria) {
+        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchCriteria}`, {
+            method: 'GET',
+            headers: new Headers({ 'Authorization': 'Bearer ' + accessToken })
 
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
             })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data)
-                })
 
 
     }
 }
+export default Controller;

@@ -9,10 +9,14 @@ export default class View {
         this.controller = controller;
         this.authorization = true;
         this.addComponents();
+        this.state= {
+            searchCriteria: 'elvis'
+        }
     }
 
     responseGoogle(response) {
-        this.controller.searchVideo(response.accessToken)
+        this.controller.searchVideo(response.accessToken, this.state.searchCriteria);
+        
     }
 
 
