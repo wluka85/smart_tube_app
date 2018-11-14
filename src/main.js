@@ -8,4 +8,6 @@ export default class Main {
         this.controller = new Controller(this.model);
         this.view = new View(this.controller);
     }
+
+    
 }
