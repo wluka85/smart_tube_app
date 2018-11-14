@@ -1,9 +1,12 @@
+import React from 'react';
 import * as ReactDOM from "react-dom";
+import AppPage from './components/appPage';
 
 export default class View {
     constructor(controller) {
         this.controller = controller;
         this.authorization = true;
+        this.addComponents();
     }
 
     addComponents() {
@@ -25,7 +28,7 @@ export default class View {
     getSmartTubeContainer() {
         return (
             <div id="container">
-
+                <AppPage />
 
             </div>
         )

@@ -9,7 +9,8 @@ export class searchBar extends Component {
 
   onChangeHandler = (event) => {
     this.setState({term: event.target.value});
-    console.log(this.state.term);
+    this.props.onInputChange(event.target.value);
+    // console.log(this.state.term);
   }
 
   render() {
