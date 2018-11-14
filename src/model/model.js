@@ -2,6 +2,8 @@ export default class Model {
 
     constructor() {
         this.observerList = [];
+        this.message = '';
+        this.isSignedIn = false;
     }
 
     attach(observer) {
