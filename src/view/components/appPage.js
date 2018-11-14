@@ -6,6 +6,8 @@ export class appPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      videos: [],
+      selectedVideo: null,
       searchCriteria: ''
     }
   }
@@ -15,7 +17,10 @@ export class appPage extends Component {
     return (
       <div>
         <SearchBar onInputChange = {userInput => this.setState({searchCriteria: userInput})}/>
-        <ItemsList searchResults = {this.state.searchCriteria}/>    
+        <ItemsList 
+          searchResults = {this.state.searchCriteria}
+          onUserSelected = {(selectedItem => this.setState({selectedVideo: selectedItem}))}
+        />    
       </div>
     );
   }
