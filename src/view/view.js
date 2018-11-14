@@ -16,7 +16,7 @@ export default class View {
 
     responseGoogle(response) {
         this.controller.searchVideo(response.accessToken, this.state.searchCriteria);
-        
+        ReactDOM.render(<AppPage />, document.getElementById('container'));
     }
 
 
@@ -26,7 +26,6 @@ export default class View {
             ReactDOM.render(this.getSmartTubeContainer(), document.getElementById('root'));
 
         } else {
-            console.log('tut')
             ReactDOM.render(<GoogleLogin
                 clientId="549983921860-7ctt7f0r7777vuir9e1pe3bj7p1siea6.apps.googleusercontent.com"
                 buttonText="Login"
@@ -40,13 +39,12 @@ export default class View {
 
     }
 
-    getSmartTubeContainer() {
+    getSmartTubeContainer(){
         return (
             <div id="container">
                 <AppPage />
 
             </div>
-        )
-
+        );
     }
 }

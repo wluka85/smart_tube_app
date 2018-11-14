@@ -19,6 +19,7 @@ export class appPage extends Component {
         <SearchBar onInputChange = {userInput => this.setState({searchCriteria: userInput})}/>
         <ItemsList 
           searchResults = {this.state.searchCriteria}
+          videos = {this.state.videos}
           onUserSelected = {(selectedItem => this.setState({selectedVideo: selectedItem}))}
         />    
       </div>

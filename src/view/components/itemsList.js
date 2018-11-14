@@ -7,7 +7,7 @@ export class itemsList extends Component {
   renderItemsList () {
     return (
       <ul>
-        {this.props.video.map(video => {
+        {this.props.videos.map(video => {
           return (
             <ItemsListVideo
               key={video.etag}
