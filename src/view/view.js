@@ -15,6 +15,7 @@ export default class View {
     }
 
     responseGoogle(response) {
+        console.log(response.accessToken);
         this.controller.searchVideo(response.accessToken, this.state.searchCriteria);
         ReactDOM.render(<AppPage />, document.getElementById('container'));
     }
