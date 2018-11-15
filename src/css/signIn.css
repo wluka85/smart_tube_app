@@ -1,0 +1,44 @@
+body {
+    background-image: url('../img/mozaika.jpg');
+    /*background-repeat: no-repeat;*/
+    background-attachment: fixed;
+    /*background-position: center;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+}
+
+#sign-in-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 400px;
+    height: 300px;
+    /*opacity: 0.8;*/
+    box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.75);
+}
+
+
+.sign-in-button{
+    background-color: darkred;
+    color: white;
+    border: 0px;
+}
+
+#sign-in-button:hover {
+    opacity: 0.7;
+}
+
+
+
+
+#sign-in-message {
+    font-size: 20px;
+    color: darkred;
+    margin-top: 20px;
+}
+
