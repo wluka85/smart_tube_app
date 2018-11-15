@@ -6,6 +6,7 @@ export class itemsListVideo extends Component {
     super(props);
     this.video = this.props.video;
     this.onUserSelected = this.props.onUserSelected;
+    this.onUserAddToPlaylist = this.props.onUserAddToPlaylist;
     this.imageUrl = this.video.snippet.thumbnails.default.url;
   }
 
@@ -20,6 +21,10 @@ export class itemsListVideo extends Component {
               </div>
               <div className="media-body">
                 <div className="media-heading">{this.video.snippet.title}</div>
+              </div>
+              <div>
+                <button className='add-to-playlist-button'
+                  onClick={(event) => this.onUserAddToPlaylist(this.video.etag, event)}>Add to playlist</button>
               </div>
             </div>
           </li>

@@ -22,6 +22,10 @@ export class ItemsList extends Component {
     this.controller.showSelectedVideo(video);
   }
 
+  handleAddToPlaylist(videoId, event) {
+    this.controller.addToPlaylist(videoId, event);
+  }
+
   renderItemsList () {
     return (
       <ul>
@@ -31,6 +35,7 @@ export class ItemsList extends Component {
               key={video.etag}
               video={video}
               onUserSelected = {this.handleUserSelect.bind(this)}
+              onUserAddToPlaylist = {this.handleAddToPlaylist.bind(this)}
             />
           );
         })}
