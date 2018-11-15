@@ -3,11 +3,14 @@ export default class Model {
     constructor() {
         this.observerList = [];
         this.message = '';
+        this.videos = [];
         this.isSignedIn = false;
+        this.chosenVideo = null;
     }
 
     attach(observer) {
         this.observerList.push(observer);
+        console.log('obs', observer);
     }
 
     detach(observer) {

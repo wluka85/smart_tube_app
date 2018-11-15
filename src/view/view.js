@@ -1,9 +1,10 @@
 import React from 'react';
 
 import * as ReactDOM from "react-dom";
-import AppPage from './components/appPage';
 import AuthorizationComponent from "./components/authorizationComponent";
 import HeaderContainer from './components/headerContainer';
+import ItemsList from './components/itemsList';
+import DetailedVideo from './components/detailedVideo';
 
 export default class View {
     constructor(controller) {
@@ -15,9 +16,7 @@ export default class View {
     responseGoogle(response) {
         console.log(response.accessToken);
         this.controller.searchUserPlaylists(response.accessToken);
-        ReactDOM.render(this.getSmartTubeContainer(), document.getElementById('container'));
         this.loadPage(false);
-
     }
 
     loadPage() {
@@ -38,7 +37,9 @@ export default class View {
                 <HeaderContainer 
                     controller = {this.controller} 
                     loadPageAction={this.loadPage.bind(this)}/>
-
+                <ItemsList controller = {this.controller}/>
+                <DetailedVideo controller = {this.controller}/>
+                
             </div>
         );
     }

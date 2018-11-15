@@ -22,6 +22,14 @@ class Controller {
         this.model.notifyAllObservers();
     }
 
+    showSelectedVideo(video) {
+        this.model.chosenVideo = video;
+        console.log(video);
+        console.log(this.model.chosenVideo);
+        console.log(this.model.observerList);
+        this.model.notifyAllObservers();
+      }
+
     searchVideo(searchCriteria) {
         fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchCriteria}`, {
             method: 'GET',
@@ -30,7 +38,7 @@ class Controller {
             .then((response) => response.json())
             .then((data) => {
                 console.log(data.items);
-                this.videos = data.items;
+                this.model.videos = data.items;
                 this.model.notifyAllObservers();
             })
     }
@@ -43,7 +51,7 @@ class Controller {
             .then(response => response.json())
             .then(data => {
                 console.log(data.items);
-                this.videos = data.items;
+                this.model.videos = data.items;
                 this.model.notifyAllObservers();
             })
     }
