@@ -9,14 +9,11 @@ export default class View {
         this.controller = controller;
         this.authorization = true;
         this.addComponents();
-        this.state= {
-            searchCriteria: 'elvis'
-        }
     }
 
     responseGoogle(response) {
         console.log(response.accessToken);
-        this.controller.searchVideo(response.accessToken, this.state.searchCriteria);
+        this.controller.searchUserPlaylists(response.accessToken);
         ReactDOM.render(<AppPage />, document.getElementById('container'));
     }
 
@@ -40,12 +37,13 @@ export default class View {
 
     }
 
-    getSmartTubeContainer(){
-        return (
-            <div id="container">
-                <AppPage />
-
-            </div>
-        );
-    }
+    // getSmartTubeContainer(){
+    //     return (
+    //         <div id="container">
+    //             <AppPage 
+    //                 searchCriteria = {searchInput => this.setState({searchCriteria : searchInput})}/>
+    //             <p>{this.searchCriteria}</p>
+    //         </div>
+    //     );
+    // }
 }

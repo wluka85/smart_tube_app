@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class searchBar extends Component {
+export class SearchBar extends Component {
 
   constructor(props) {
     super(props);
@@ -9,7 +9,7 @@ export class searchBar extends Component {
 
   onChangeHandler = (event) => {
     this.setState({term: event.target.value});
-    this.props.onInputChange(event.target.value);
+    this.props.searchCriteria(event.target.value);
   }
 
   render() {
@@ -24,4 +24,4 @@ export class searchBar extends Component {
   }
 }
 
-export default searchBar;
+export default SearchBar;

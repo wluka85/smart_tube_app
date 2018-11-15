@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from './searchBar';
 import ItemsList from './itemsList';
 
-export class appPage extends Component {
+export class AppPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,18 +13,18 @@ export class appPage extends Component {
   }
 
   render() {
-    console.log(this.state.searchCriteria);
     return (
       <div>
-        <SearchBar onInputChange = {userInput => this.setState({searchCriteria: userInput})}/>
+        <SearchBar searchCriteria = {searchInput => this.setState({searchCriteria : searchInput})}/>
         <ItemsList 
-          searchResults = {this.state.searchCriteria}
+          searchResults = {this.props.searchCriteria}
           videos = {this.state.videos}
           onUserSelected = {(selectedItem => this.setState({selectedVideo: selectedItem}))}
-        />    
+        />
+        <p>{this.state.searchCriteria}</p>
       </div>
     );
   }
 }
 
-export default appPage;
+export default AppPage;
