@@ -42,7 +42,7 @@ export default class AuthorizationComponent extends Component {
 
         } else {
             model.detach(this);
-            this.loadPage(true);
+            this.loadPage();
         }
     }
 }

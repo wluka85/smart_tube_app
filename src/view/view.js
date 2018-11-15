@@ -17,8 +17,8 @@ export default class View {
 
 
 
-    loadPage(isSignedIn) {
-        if (isSignedIn) {
+    loadPage() {
+        if (this.controller.model.isSignedIn) {
             console.log(this);
             ReactDOM.render(this.getSmartTubeContainer(), document.getElementById('root'));
 
