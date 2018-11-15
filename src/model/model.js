@@ -10,7 +10,6 @@ export default class Model {
 
     attach(observer) {
         this.observerList.push(observer);
-        console.log('obs', observer);
     }
 
     detach(observer) {

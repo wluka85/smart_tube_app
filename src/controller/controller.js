@@ -24,9 +24,6 @@ class Controller {
 
     showSelectedVideo(video) {
         this.model.chosenVideo = video;
-        console.log(video);
-        console.log(this.model.chosenVideo);
-        console.log(this.model.observerList);
         this.model.notifyAllObservers();
       }
 

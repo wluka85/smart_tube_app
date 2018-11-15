@@ -13,11 +13,10 @@ export default class View {
         this.loadPage();
     }
 
-    responseGoogle(response) {
-        console.log(response.accessToken);
-        this.controller.searchUserPlaylists(response.accessToken);
-        this.loadPage(false);
-    }
+    // responseGoogle(response) {
+    //     this.controller.searchUserPlaylists(response.accessToken);
+    //     this.loadPage(false);
+    // }
 
     loadPage() {
         if (this.controller.model.isSignedIn) {
@@ -39,8 +38,7 @@ export default class View {
                     loadPageAction={this.loadPage.bind(this)}/>
                 <ItemsList controller = {this.controller}/>
                 <DetailedVideo controller = {this.controller}/>
-                
             </div>
-        );
+        );        
     }
 }
