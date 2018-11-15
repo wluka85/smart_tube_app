@@ -1,0 +1,63 @@
+#add-new {
+    width: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkred;
+    color: white;
+    margin-top: 5px;
+    height: 30px;
+}
+
+#add-new:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#catalog-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.playlist-component {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 220px;
+    margin-top: 5px;
+}
+
+
+.playlist-name {
+    background-color: darkred;
+    color: white;
+    width: 200px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playlist-name:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.fa-trash-alt {
+    background-color: darkred;
+    color: white;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-trash-alt:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}

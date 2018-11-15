@@ -3,6 +3,7 @@ import React from 'react';
 import * as ReactDOM from "react-dom";
 import AppPage from './components/appPage';
 import AuthorizationComponent from "./components/authorizationComponent";
+import CatalogContainer from "./components/catalogContainer";
 
 export default class View {
     constructor(controller) {
@@ -34,7 +35,7 @@ export default class View {
     getSmartTubeContainer() {
         return (
             <div id="container">
-                <AppPage />
+                <CatalogContainer controller={this.controller} />
 
             </div>
         );

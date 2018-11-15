@@ -1,13 +1,32 @@
+import Playlist from "./playlist";
+
 export default class Model {
 
     constructor() {
         this.observerList = [];
         this.message = '';
         this.isSignedIn = false;
+        this.currentPlaylist = null;
+        this.catalogs = [];
+        this.videoList = [];
+    }
+
+    setCurrentPlaylist(playlist) {
+        this.currentPlaylist = playlist;
+    }
+
+    setCatalogs(array) {
+        this.catalogs = [];
+        array.forEach(element => {
+            let playlist = new Playlist(element.id, element.snippet.title, element.snippet.description, element.etag, element.snippet.publishedAt);
+            this.catalogs.push(playlist);
+            console.log(playlist)
+        })
     }
 
     attach(observer) {
         this.observerList.push(observer);
+        console.log(observer)
     }
 
     detach(observer) {
