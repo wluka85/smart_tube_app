@@ -1,30 +1,31 @@
-import React, { Component } from 'react';
-import SearchBar from './searchBar';
-import ItemsList from './itemsList';
+// import React, { Component } from 'react';
+// import SearchBar from './searchBar';
+// import ItemsList from './itemsList';
+// import HeaderContainer from './headerContainer';
 
-export class appPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      videos: [],
-      selectedVideo: null,
-      searchCriteria: ''
-    }
-  }
+// export class AppPage extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       videos: [],
+//       selectedVideo: null,
+//       searchCriteria: ''
+//     }
+//   }
 
-  render() {
-    console.log(this.state.searchCriteria);
-    return (
-      <div>
-        <SearchBar onInputChange = {userInput => this.setState({searchCriteria: userInput})}/>
-        <ItemsList 
-          searchResults = {this.state.searchCriteria}
-          videos = {this.state.videos}
-          onUserSelected = {(selectedItem => this.setState({selectedVideo: selectedItem}))}
-        />    
-      </div>
-    );
-  }
-}
+// //   render() {
+// //     return (
+// //       <div>
+// //         <HeaderContainer />
+// //         <ItemsList 
+// //           searchResults = {this.props.searchCriteria}
+// //           videos = {this.state.videos}
+// //           onUserSelected = {(selectedItem => this.setState({selectedVideo: selectedItem}))}
+// //         />
+// //         <p>{this.state.searchCriteria}</p>
+// //       </div>
+// //     );
+// //   }
+// // }
 
-export default appPage;
+// export default AppPage;

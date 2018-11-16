@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 
-export class searchBar extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {term : ''};
-  }
+export class SearchBar extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.actionOnChange = props.actionOnChange;
+  // }
 
   onChangeHandler = (event) => {
-    this.setState({term: event.target.value});
-    this.props.onInputChange(event.target.value);
-    // console.log(this.state.term);
+    // this.handleSearch(event.target.value);
+    this.props.actionOnChange(event.target.value);
   }
 
   render() {
     return (
       <div className='search-bar'>
         <input type="text"
-          value={this.state.term}
           onChange={this.onChangeHandler}
           placeholder='Search' />        
       </div>
@@ -25,4 +22,4 @@ export class searchBar extends Component {
   }
 }
 
-export default searchBar;
+export default SearchBar;

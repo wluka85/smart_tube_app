@@ -5,10 +5,12 @@ export default class Model {
     constructor() {
         this.observerList = [];
         this.message = '';
+        this.videos = [];
         this.isSignedIn = false;
         this.currentPlaylist = null;
         this.catalogs = [];
         this.videoList = [];
+        this.chosenVideo = null;
     }
 
     setCurrentPlaylist(playlist) {
@@ -22,6 +24,7 @@ export default class Model {
             this.catalogs.push(playlist);
             console.log(playlist)
         })
+        
     }
 
     attach(observer) {

@@ -1,0 +1,18 @@
+ul {
+  list-style: none;
+}
+.list-group-item {
+  border: 1px solid rgb(179, 179, 179);
+  margin: 2px;
+  border-radius: 4px;
+  padding: 7px;
+  display: flex;
+}
+.video-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.media-body {
+  padding: 0 4px;
+}
