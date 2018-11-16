@@ -36,12 +36,14 @@ export default class View {
     getSmartTubeContainer() {
         return (
             <div id="container">
-                <CatalogContainer controller={this.controller} />
-                <HeaderContainer 
-                    controller = {this.controller} 
+                <HeaderContainer
+                    controller = {this.controller}
                     loadPageAction={this.loadPage.bind(this)}/>
-                <ItemsList controller = {this.controller}/>
-                <DetailedVideo controller = {this.controller}/>
+                <div id="main-container">
+                    <CatalogContainer controller={this.controller} />
+                    <ItemsList controller = {this.controller}/>
+                    <DetailedVideo controller = {this.controller}/>
+                </div>
             </div>
         );        
     }
