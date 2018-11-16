@@ -1,12 +1,13 @@
 import React, {Component} from "react";
-import '../../css/catalog.css';
+import '../../css/playlist.css';
 
 export default class PlaylistElementComponent extends Component {
 
     render() {
         return (
             <div className="playlist-element-component">
-                <div className="video-name" onClick={() => {this.props.playlistElementAction(this.props.id)}}> {this.props.name}</div>
+                <img src={this.props.imageURL} alt={this.props.title} className="video-picture" onClick={() => {this.props.playlistElementAction(this.props.id)}}/>
+                <div className="video-name"> {this.props.name}</div>
                 <i className="fas fa-trash-alt" onClick={() => {this.props.deleteAction(this.props.id)}}/>
             </div>
         )
