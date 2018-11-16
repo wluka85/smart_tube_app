@@ -6,6 +6,7 @@ import CatalogContainer from "./components/catalogContainer";
 import HeaderContainer from './components/headerContainer';
 import ItemsList from './components/itemsList';
 import DetailedVideo from './components/detailedVideo';
+import PlaylistContainer from "./components/playlistContainer";
 require ('../css/headerStyles.css');
 require ('../css/mainWindow.css');
 
@@ -45,6 +46,7 @@ export default class View {
                         <ItemsList controller = {this.controller}/>
                         <DetailedVideo controller = {this.controller}/>
                     </div>
+                    <PlaylistContainer controller={this.controller} />
                 </div>
             </div>
         );        
