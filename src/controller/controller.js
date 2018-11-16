@@ -84,17 +84,14 @@ class Controller {
         })
             .then((response) => response.json())
             .then((data) => {
-                this.model.currentPlaylist = etag;
                 let videos = data.items;
-                videos.forEach(element => {
-                    let result = element.snippet;
-                    let video = new Video(result.channelId, result.channelTitle,
-                        result.description, result.publishedAt, result.title, result.thumbnails.high.url, element.id);
-                    this.model.videoList.push(video);
-                })
-                console.log(this.model.videoList)
+                this.model.setCurrentPlaylist(etag, videos);
                 this.model.notifyAllObservers();
             })
+    }
+
+    getCurrentPlaylist() {
+        this.model.notifyAllObservers();
     }
 
     addNewPlaylist() {

@@ -1,4 +1,5 @@
 import Playlist from "./playlist";
+import Video from "./video";
 
 export default class Model {
 
@@ -13,8 +14,21 @@ export default class Model {
         this.chosenVideo = null;
     }
 
-    setCurrentPlaylist(playlist) {
-        this.currentPlaylist = playlist;
+    setCurrentPlaylist(playlistId, videos) {
+        this.catalogs.forEach(element => {
+            if (element.id === playlistId) {
+                this.currentPlaylist = element;
+            }
+        })
+
+        this.videoList = [];
+        videos.forEach(element => {
+            let result = element.snippet;
+            let video = new Video(result.channelId, result.channelTitle,
+                result.description, result.publishedAt, result.title, result.thumbnails.high.url, element.id);
+            this.videoList.push(video);
+        })
+
     }
 
     setCatalogs(array) {
