@@ -41,8 +41,10 @@ export default class View {
                     loadPageAction={this.loadPage.bind(this)}/>
                 <div id="main-container">
                     <CatalogContainer controller={this.controller} />
-                    <ItemsList controller = {this.controller}/>
-                    <DetailedVideo controller = {this.controller}/>
+                    <div id="video-list-container">
+                        <ItemsList controller = {this.controller}/>
+                        <DetailedVideo controller = {this.controller}/>
+                    </div>
                 </div>
             </div>
         );        
