@@ -17,7 +17,7 @@ export default class View {
     }
 
     // responseGoogle(response) {
-    //     this.controller.searchUserPlaylists(response.accessToken);
+    //     this.controller.searchUserCatalogs(response.accessToken);
     //     this.loadPage(false);
     // }
 

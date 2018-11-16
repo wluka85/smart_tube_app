@@ -23,7 +23,7 @@ export default class CatalogContainer extends Component {
     }
 
     handleRefreshCatalogs() {
-        this.controller.searchUserPlaylists();
+        this.controller.searchUserCatalogs();
     }
 
     handleDeleteCatalog(etag) {

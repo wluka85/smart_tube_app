@@ -55,7 +55,7 @@ class Controller {
             })
     }
 
-    searchUserPlaylists() {
+    searchUserCatalogs() {
         fetch('https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true', {
             method: 'GET',
             headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
@@ -73,7 +73,7 @@ class Controller {
             headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
         })
             .then(response => {
-                this.searchUserPlaylists()
+                this.searchUserCatalogs()
             })
     }
 
