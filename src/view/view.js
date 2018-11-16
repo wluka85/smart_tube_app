@@ -5,6 +5,8 @@ import AuthorizationComponent from "./components/authorizationComponent";
 import HeaderContainer from './components/headerContainer';
 import ItemsList from './components/itemsList';
 import DetailedVideo from './components/detailedVideo';
+require ('../css/headerStyles.css');
+require ('../css/mainWindow.css');
 
 export default class View {
     constructor(controller) {

@@ -13,8 +13,7 @@ export class DetailedVideo extends Component {
 
   update(model) {
     this.setState({
-      chosenVideo: model.chosenVideo,
-
+      chosenVideo: model.chosenVideo
     });
   }
 
