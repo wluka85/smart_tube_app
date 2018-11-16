@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import CatalogComponent from "./catalogComponent";
+import PlaylistElementComponent from "./playlistElementComponent";
 
 export default class PlaylistContainer extends Component {
 
@@ -39,12 +40,14 @@ export default class PlaylistContainer extends Component {
         return (
             <React.Fragment>
                 {this.state.playlistElements.map((element, i) => {
-                    return (<CatalogComponent key={i}
-                                              id={element.id}
-                                              name={element.title}
-                                              publishedAt={element.publishedAt}
-                                              playlistElementAction={this.handlePlayVideo.bind(this)}
-                                              deleteAction={this.handleDeletePlaylistElement().bind(this)}
+                    return (<PlaylistElementComponent key={i}
+                                                      imageURL={element.imageURL}
+                                                      id={element.id}
+                                                      name={element.title}
+                                                      date={element.publishedAt}
+                                                      description={element.description}
+                                                      playlistElementAction={this.handlePlayVideo.bind(this)}
+                                                      deleteAction={this.handleDeletePlaylistElement.bind(this)}
                     />)
                 })}
             </React.Fragment>
@@ -52,7 +55,10 @@ export default class PlaylistContainer extends Component {
     }
 
     update(model) {
-        this.setState({playlistName: model.currentPlaylist.name,
-                        playlistElements: model.currentPlaylist});
+        if(model.currentPlaylist) {
+            this.setState({playlistName: model.currentPlaylist.title,
+                playlistElements: model.videoList});
+        }
+
     }
 }
