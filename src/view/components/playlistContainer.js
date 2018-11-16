@@ -33,7 +33,7 @@ export default class PlaylistContainer extends Component {
     }
 
     handlePlayVideo(etag) {
-        this.controller.setCurrentVideo(etag);
+        this.controller.playVideoList(etag);
     }
 
     getPlaylistElements() {
