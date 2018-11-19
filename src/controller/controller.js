@@ -27,10 +27,15 @@ class Controller {
     showSelectedVideo(video) {
         this.model.chosenVideo = video;
         this.model.notifyAllObservers();
-      }
+    }
+
+    hideSelectedVideo() {
+        this.model.chosenVideo = null;
+        this.model.notifyAllObservers();
+    }
 
     searchVideo(searchCriteria) {
-        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchCriteria}`, {
+        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchCriteria}&maxResults=10`, {
             method: 'GET',
             headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken })
         })
