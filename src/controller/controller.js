@@ -82,6 +82,16 @@ class Controller {
             })
     }
 
+    deletePlaylistElement(elementId, playlistId) {
+        fetch('https://www.googleapis.com/youtube/v3/playlistItems?id=' + elementId, {
+            method: 'DELETE',
+            headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
+        })
+            .then(response => {
+                this.getPlaylist(playlistId);
+            })
+    }
+
     getPlaylist(etag) {
         fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + etag, {
             method: 'GET',

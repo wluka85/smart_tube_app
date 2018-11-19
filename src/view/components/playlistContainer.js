@@ -10,6 +10,7 @@ export default class PlaylistContainer extends Component {
         this.controller.model.attach(this);
         this.state = {
             playlistName: '',
+            playlistId: '',
             playlistElements: []
         }
         this.handleRefreshPlaylist();
@@ -29,7 +30,7 @@ export default class PlaylistContainer extends Component {
     }
 
     handleDeletePlaylistElement(etag) {
-        this.controller.deletePlaylistElement(etag);
+        this.controller.deletePlaylistElement(etag, this.state.playlistId);
     }
 
     handlePlayVideo(etag) {
@@ -42,7 +43,7 @@ export default class PlaylistContainer extends Component {
                 {this.state.playlistElements.map((element, i) => {
                     return (<PlaylistElementComponent key={i}
                                                       imageURL={element.imageURL}
-                                                      id={element.id}
+                                                      id={element.videoId}
                                                       name={element.title}
                                                       date={element.publishedAt}
                                                       description={element.description}
@@ -57,7 +58,7 @@ export default class PlaylistContainer extends Component {
     update(model) {
         if(model.currentPlaylist) {
             this.setState({playlistName: model.currentPlaylist.title,
-                playlistElements: model.videoList});
+                playlistElements: model.videoList, playlistId: model.currentPlaylist.id});
         }
 
     }
