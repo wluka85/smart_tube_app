@@ -11,8 +11,10 @@ export class DetailedVideo extends Component {
     };
   }
 
-  handleUserUnselect = () => {
-    this.controller.hideSelectedVideo();
+  handleUserUnselect = (event) => {
+    if (event.target.className === 'modal') {
+      this.controller.hideSelectedVideo();
+    }
   }
 
   update(model) {
@@ -29,11 +31,10 @@ export class DetailedVideo extends Component {
 
   renderFull() {
     return (
-      <div className='modal' onClick={this.handleUserUnselect}>
+      <div className='modal' onClick={(event) => this.handleUserUnselect(event)}>
         <div className="video-container">
-          <div className="embedresponsive embedresponsive-16by9">
-            <p>Here is the player's place</p>
-            <iframe className="embed-responsive-item video-window" src={this.url} title="video" allowFullScreen frameBorder="0" ></iframe>
+          <div className="embed">
+            <iframe className="embed-item video-window" src={this.url} title="video" allowFullScreen frameBorder="0" ></iframe>
           </div>
           <div className="details">
             <div>{this.state.chosenVideo.snippet.title}</div>

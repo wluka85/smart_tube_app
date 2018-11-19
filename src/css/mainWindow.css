@@ -20,7 +20,7 @@ ul {
 .modal {
   position: fixed; /* Stay in place */
   z-index: 5; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 200px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -36,9 +36,20 @@ ul {
   height: 400px;
   width: 600px;
   z-index: 10;
-  box-shadow: 3px 3px 5px 6px #ccc;
-  padding: 50px 20px 20px 20px;
+  /* box-shadow: 3px 3px 5px 6px rgb(151, 149, 149); */
+  padding: 20px;
   margin-left: -250px;
   margin-top: -200px;
   background-color: white;
+}
+
+.video-window {
+  height: 300px;
+}
+
+.embed {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
 }
