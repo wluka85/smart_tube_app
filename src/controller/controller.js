@@ -109,8 +109,24 @@ class Controller {
         this.model.notifyAllObservers();
     }
 
-    addNewPlaylist() {
-        console.log('Add new');
+    addNewPlaylist(playlistTitle, playlistDescription) {
+        fetch('https://www.googleapis.com/youtube/v3/playlists?part=snippet', {
+            method: 'POST',
+            headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken, 'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'}),
+            body: JSON.stringify({snippet: {
+                    "title": playlistTitle,
+                    "description": playlistDescription
+                }
+            })
+
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+                this.searchUserCatalogs();
+            })
+
     }
 }
 export default Controller;
