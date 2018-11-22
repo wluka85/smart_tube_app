@@ -7,20 +7,15 @@ import HeaderContainer from './components/headerContainer';
 import ItemsList from './components/itemsList';
 import DetailedVideo from './components/detailedVideo';
 import PlaylistContainer from "./components/playlistContainer";
+import CatalogCreatorComponent from "./components/catalogCreatorComponent";
 require ('../css/headerStyles.css');
 require ('../css/mainWindow.css');
 
 export default class View {
     constructor(controller) {
         this.controller = controller;
-        this.authorization = true;
         this.loadPage();
     }
-
-    // responseGoogle(response) {
-    //     this.controller.searchUserCatalogs(response.accessToken);
-    //     this.loadPage(false);
-    // }
 
     loadPage() {
         if (this.controller.model.isSignedIn) {
@@ -42,6 +37,7 @@ export default class View {
                     loadPageAction={this.loadPage.bind(this)}/>
                 <div id="main-container">
                     <CatalogContainer controller={this.controller} />
+                    <CatalogCreatorComponent controller={this.controller}/>
                     <div id="video-list-container">
                         <ItemsList controller = {this.controller}/>
                         <DetailedVideo controller = {this.controller}/>

@@ -1,4 +1,5 @@
 import Video from "../model/video";
+import JSON from 'circular-json';
 
 class Controller {
 
@@ -78,7 +79,7 @@ class Controller {
             headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
         })
             .then(response => {
-                this.searchUserCatalogs()
+                this.searchUserCatalogs();
             })
     }
 
@@ -109,6 +110,16 @@ class Controller {
         this.model.notifyAllObservers();
     }
 
+    showModalCatalogCreator() {
+        this.model.shouldBeShownCatalogCreator = true;
+        this.model.notifyAllObservers();
+    }
+
+    hideAddCatalogWindow() {
+        this.model.shouldBeShownCatalogCreator = false;
+        this.model.notifyAllObservers();
+    }
+
     addNewPlaylist(playlistTitle, playlistDescription) {
         fetch('https://www.googleapis.com/youtube/v3/playlists?part=snippet', {
             method: 'POST',
@@ -124,6 +135,7 @@ class Controller {
             .then((response) => response.json())
             .then((data) => {
                 console.log(data)
+                this.model.shouldBeShownCatalogCreator = false;
                 this.searchUserCatalogs();
             })
 

@@ -12,6 +12,7 @@ export default class Model {
         this.catalogs = [];
         this.videoList = [];
         this.chosenVideo = null;
+        this.shouldBeShownCatalogCreator = false;
     }
 
     setCurrentPlaylist(playlistId, videos) {

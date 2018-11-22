@@ -35,7 +35,7 @@ export default class CatalogContainer extends Component {
     }
 
     handleAddNewCatalog() {
-        this.controller.addNewPlaylist();
+        this.controller.showModalCatalogCreator();
     }
 
     getCatalogs() {
