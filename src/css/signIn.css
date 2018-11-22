@@ -1,19 +1,19 @@
-body {
+.sign-in-window {
+    position: fixed;
     background-image: url('../img/mozaika.jpg');
-    /*background-repeat: no-repeat;*/
+    background-repeat: repeat;
     background-attachment: fixed;
-    /*background-position: center;*/
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 15%;
+    width: 100%;
+    height: 100%;
 }
 
 #sign-in-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     background-color: white;
     width: 400px;
