@@ -27,7 +27,7 @@ export default class Model {
             console.log(element)
             let result = element.snippet;
             let video = new Video(result.channelId, result.channelTitle,
-                result.description, result.publishedAt, result.title, result.thumbnails.high.url, result.resourceId.videoId);
+                result.description, result.publishedAt, result.title, result.thumbnails.high.url, result.resourceId.videoId, element.id);
             this.videoList.push(video);
         })
 

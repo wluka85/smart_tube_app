@@ -45,6 +45,7 @@ export default class PlaylistContainer extends Component {
                                                       video={element}
                                                       imageURL={element.imageURL}
                                                       id={element.videoId}
+                                                      playlistElementId={element.playlistElementId}
                                                       name={element.title}
                                                       date={element.publishedAt}
                                                       description={element.description}
