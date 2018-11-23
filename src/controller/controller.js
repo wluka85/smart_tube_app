@@ -35,7 +35,6 @@ class Controller {
 
     playVideoFromPlaylist(video) {
         this.model.chosenVideo = video;
-        console.log(video)
         this.model.notifyAllObservers();
     }
 
@@ -93,6 +92,7 @@ class Controller {
     }
 
     deletePlaylistElement(elementId, playlistId) {
+        console.log(elementId)
         fetch('https://www.googleapis.com/youtube/v3/playlistItems?id=' + elementId, {
             method: 'DELETE',
             headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
@@ -148,6 +148,27 @@ class Controller {
                 this.searchUserCatalogs();
             })
 
+    }
+
+    addToPlaylist(videoId, event) {
+        fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', {
+            method: 'POST',
+            headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken, 'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'}),
+            body: JSON.stringify({"snippet": {
+                    "playlistId": this.model.currentPlaylist.id,
+                    "resourceId": {
+                        "kind": "youtube#video",
+                        "videoId": videoId
+                    }
+                }
+            })
+
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                this.getPlaylist(this.model.currentPlaylist.id);
+            })
     }
 }
 export default Controller;

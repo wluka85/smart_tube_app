@@ -24,7 +24,7 @@ export class itemsListVideo extends Component {
               </div>
               <div>
                 <button className='add-to-playlist-button'
-                  onClick={(event) => this.onUserAddToPlaylist(this.video.etag, event)}>Add to playlist</button>
+                  onClick={(event) => this.onUserAddToPlaylist(this.video.id.videoId, event)}>Add to playlist</button>
               </div>
             </div>
           </li>
