@@ -26,7 +26,10 @@ class Controller {
     }
 
     showSelectedVideo(video) {
-        this.model.chosenVideo = video;
+        let snippet = video.snippet;
+        let videoTemp = new Video(snippet.channelId, snippet.channelTitle,
+            snippet.description, snippet.publishedAt, snippet.title, snippet.thumbnails.high.url, video.id.videoId);
+        this.model.chosenVideo = videoTemp;
         this.model.notifyAllObservers();
     }
 

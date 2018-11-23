@@ -37,8 +37,8 @@ export class DetailedVideo extends Component {
             <iframe className="embed-item video-window" src={this.url} title="video" allowFullScreen frameBorder="0" ></iframe>
           </div>
           <div className="details">
-            <div>{this.state.chosenVideo.snippet.title}</div>
-            <div>{this.state.chosenVideo.snippet.description}</div>
+            <div>{this.state.chosenVideo.title}</div>
+            <div>{this.state.chosenVideo.description}</div>
           </div>
         </div>
       </div>
@@ -49,7 +49,8 @@ export class DetailedVideo extends Component {
     if (!this.state.chosenVideo) {
       return this.renderEmpty();
     } else {
-      this.videoId = this.state.chosenVideo.id.videoId;
+      this.videoId = this.state.chosenVideo.videoId;
+      console.log(this.videoId)
       this.url = `https://www.youtube.com/embed/${this.videoId}`;
       return this.renderFull();
     }

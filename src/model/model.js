@@ -26,7 +26,7 @@ export default class Model {
         videos.forEach(element => {
             let result = element.snippet;
             let video = new Video(result.channelId, result.channelTitle,
-                result.description, result.publishedAt, result.title, result.thumbnails.high.url, element.id);
+                result.description, result.publishedAt, result.title, result.thumbnails.high.url, element.id.videoId);
             this.videoList.push(video);
         })
 
