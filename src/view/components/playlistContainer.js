@@ -33,8 +33,8 @@ export default class PlaylistContainer extends Component {
         this.controller.deletePlaylistElement(etag, this.state.playlistId);
     }
 
-    handlePlayVideo(etag) {
-        this.controller.playVideoList(etag);
+    handlePlayVideo(video) {
+        this.controller.playVideoFromPlaylist(video);
     }
 
     getPlaylistElements() {
@@ -42,6 +42,7 @@ export default class PlaylistContainer extends Component {
             <React.Fragment>
                 {this.state.playlistElements.map((element, i) => {
                     return (<PlaylistElementComponent key={i}
+                                                      video={element}
                                                       imageURL={element.imageURL}
                                                       id={element.videoId}
                                                       name={element.title}

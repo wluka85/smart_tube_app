@@ -33,6 +33,12 @@ class Controller {
         this.model.notifyAllObservers();
     }
 
+    playVideoFromPlaylist(video) {
+        this.model.chosenVideo = video;
+        console.log(video)
+        this.model.notifyAllObservers();
+    }
+
     hideSelectedVideo() {
         this.model.chosenVideo = null;
         this.model.notifyAllObservers();
