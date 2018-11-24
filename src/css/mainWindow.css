@@ -6,10 +6,15 @@
 #main-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin-top: 60px;
+  margin-left: 240px;
+  margin-right: 250px;
 }
 
 ul {
   list-style: none;
+  padding: 0px;
 }
 .list-group-item {
   border: 1px solid rgb(179, 179, 179);
@@ -21,8 +26,13 @@ ul {
 .video-list {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
+
+#video-list-container {
+  width: 100%;
+}
+
 .media-body {
   padding: 0 4px;
 }

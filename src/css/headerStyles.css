@@ -2,9 +2,15 @@
   position: fixed;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  right: 10px;
+  left: 10px;
+  top: 0px;
 }
 
 .search-bar input {
