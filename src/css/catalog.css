@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: darkred;
+    background-color: #ca453b;
     color: white;
     margin-top: 5px;
     height: 30px;
@@ -15,6 +15,8 @@
 }
 
 #catalog-container {
+    position: fixed;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     /*justify-content: center;*/
@@ -32,7 +34,7 @@
 
 
 .catalog-name {
-    background-color: darkred;
+    background-color: #ca453b;
     color: white;
     width: 200px;
     height: 30px;
@@ -47,7 +49,7 @@
 }
 
 .fa-trash-alt {
-    background-color: darkred;
+    background-color: #ca453b;
     color: white;
     width: 30px;
     height: 30px;
