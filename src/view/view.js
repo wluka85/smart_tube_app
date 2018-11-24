@@ -36,14 +36,14 @@ export default class View {
                     controller = {this.controller}
                     loadPageAction={this.loadPage.bind(this)}/>
                 <div id="main-container">
-                    <CatalogContainer controller={this.controller} />
-                    <CatalogCreatorComponent controller={this.controller}/>
                     <div id="video-list-container">
                         <ItemsList controller = {this.controller}/>
                         <DetailedVideo controller = {this.controller}/>
                     </div>
-                    <PlaylistContainer controller={this.controller} />
                 </div>
+                <CatalogContainer controller={this.controller} />
+                <CatalogCreatorComponent controller={this.controller}/>
+                <PlaylistContainer controller={this.controller} />
             </div>
         );        
     }

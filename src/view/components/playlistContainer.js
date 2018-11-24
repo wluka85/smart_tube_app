@@ -18,9 +18,11 @@ export default class PlaylistContainer extends Component {
 
     render() {
         return (
-            <div id="playlist-container">
-                <div className="playlist-name">{this.state.playlistName}</div>
-                {this.getPlaylistElements()}
+            <div id="playlist-scroll">
+                <div id="playlist-container">
+                    <div className="playlist-name">{this.state.playlistName}</div>
+                    {this.getPlaylistElements()}
+                </div>
             </div>
         )
     }

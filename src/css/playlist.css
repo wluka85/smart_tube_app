@@ -1,23 +1,17 @@
-#playlist-container {
-    display: flex;
-    flex-direction: column;
-    /*justify-content: center;*/
-    align-items: center;
+#playlist-scroll {
     position: fixed;
     margin-top: 60px;
     z-index: 1;
-    right: 0px;
-    /*height:1000px;*/
-    /*overflow-y: scroll;*/
-
-    /*overflow-y: hidden;*/
-
-
+    right: 10px;
+    height: calc(100% - 60px);
+    overflow-y: scroll;
 }
 
-/*#playlist-container::-webkit-scrollbar {*/
-    /*width: 0em;*/
-/*}*/
+#playlist-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 .video-buttons {
