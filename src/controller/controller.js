@@ -52,7 +52,7 @@ class Controller {
     }
 
     searchVideo(searchCriteria) {
-        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchCriteria}&maxResults=10`, {
+        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchCriteria}&maxResults=10&type=video`, {
             method: 'GET',
             headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken })
         })
