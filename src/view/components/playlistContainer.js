@@ -18,12 +18,17 @@ export default class PlaylistContainer extends Component {
 
     render() {
         return (
+            <React.Fragment>
+                <div className="playlist-option">
+                    <div className="playlist-name">{this.state.playlistName}</div>
+                    <i className="fas fa-play" id="play-button" onClick={() => {this.props.playlistElementAction(this.props.video)}}/>
+                </div>
             <div id="playlist-scroll">
                 <div id="playlist-container">
-                    <div className="playlist-name">{this.state.playlistName}</div>
                     {this.getPlaylistElements()}
                 </div>
             </div>
+            </React.Fragment>
         )
     }
 
