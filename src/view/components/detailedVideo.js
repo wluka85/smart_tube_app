@@ -7,7 +7,11 @@ export class DetailedVideo extends Component {
     this.controller = props.controller;
     this.controller.model.attach(this);
     this.state = {
-      chosenVideo: null
+        loopVideo: 1,
+        autoPlay: 1,
+        disableKb: 1,
+        chosenVideo: null,
+        currentPlaylist: null
     };
   }
 
@@ -19,7 +23,8 @@ export class DetailedVideo extends Component {
 
   update(model) {
     this.setState({
-      chosenVideo: model.chosenVideo
+      chosenVideo: model.chosenVideo,
+        currentPlaylist: model.currentPlaylist
     });
   }
 
@@ -50,8 +55,12 @@ export class DetailedVideo extends Component {
       return this.renderEmpty();
     } else {
       this.videoId = this.state.chosenVideo.videoId;
-      console.log(this.videoId)
-      this.url = `https://www.youtube.com/embed/${this.videoId}`;
+      console.log(this.state.currentPlaylist.id)
+      this.url = `https://www.youtube.com/embed/
+                  ${this.state.chosenVideo.videoId}?
+                  autoplay=${this.state.autoPlay}&
+                  loop=${this.state.loopVideo}&
+                  playlist=${this.state.currentPlaylist.id}`;
       return this.renderFull();
     }
   }
