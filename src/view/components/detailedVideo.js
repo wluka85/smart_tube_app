@@ -11,7 +11,10 @@ export class DetailedVideo extends Component {
         autoPlay: 1,
         disableKb: 1,
         chosenVideo: null,
-        currentPlaylist: null
+        currentPlaylist: null,
+        typeContentToPlayInPlayer: null,
+        titleContent: '',
+        descriptionContent: ''
     };
   }
 
@@ -22,9 +25,21 @@ export class DetailedVideo extends Component {
   }
 
   update(model) {
+    let title ='';
+    let description = '';
+    if (model.typeContentToPlayInPlayer==='video') {
+      title = model.chosenVideo.title;
+      description = model.chosenVideo.description;
+    } else if (model.typeContentToPlayInPlayer==='playlist') {
+        title = model.currentPlaylist.title;
+        description = model.currentPlaylist.description;
+    }
     this.setState({
       chosenVideo: model.chosenVideo,
-        currentPlaylist: model.currentPlaylist
+        currentPlaylist: model.currentPlaylist,
+        typeContentToPlayInPlayer: model.typeContentToPlayInPlayer,
+        titleContent: title,
+        descriptionContent: description.substring(0, 200)
     });
   }
 
@@ -42,8 +57,8 @@ export class DetailedVideo extends Component {
             <iframe className="embed-item video-window" src={this.url} title="video" allowFullScreen frameBorder="0" ></iframe>
           </div>
           <div className="details">
-            <div>{this.state.chosenVideo.title}</div>
-            <div>{this.state.chosenVideo.description}</div>
+            <div>{this.state.titleContent}</div>
+            <div>{this.state.descriptionContent}</div>
           </div>
         </div>
       </div>
@@ -51,17 +66,16 @@ export class DetailedVideo extends Component {
   }
 
   render() {
-    if (!this.state.chosenVideo) {
+    if (!this.state.typeContentToPlayInPlayer) {
       return this.renderEmpty();
-    } else {
+
+    } else if (this.state.typeContentToPlayInPlayer === 'video'){
       this.videoId = this.state.chosenVideo.videoId;
-      console.log(this.state.currentPlaylist.id)
-      this.url = `https://www.youtube.com/embed/
-                  ${this.state.chosenVideo.videoId}?
-                  autoplay=${this.state.autoPlay}&
-                  loop=${this.state.loopVideo}&
-                  playlist=${this.state.currentPlaylist.id}`;
+      this.url = `https://www.youtube.com/embed/${this.state.chosenVideo.videoId}?autoplay=${this.state.autoPlay}&loop=${this.state.loopVideo}&playlist=${this.state.chosenVideo.videoId}`;
       return this.renderFull();
+    } else if (this.state.typeContentToPlayInPlayer === 'playlist') {
+      this.url = `http://www.youtube.com/embed?autoplay=${this.state.autoPlay}&loop=${this.state.loopVideo}&listType=playlist&list=${this.state.currentPlaylist.id}`
+        return this.renderFull();
     }
   }
 }

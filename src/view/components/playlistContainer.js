@@ -21,7 +21,7 @@ export default class PlaylistContainer extends Component {
             <React.Fragment>
                 <div className="playlist-option">
                     <div className="playlist-name">{this.state.playlistName}</div>
-                    <i className="fas fa-play" id="play-button" onClick={() => {this.props.playlistElementAction(this.props.video)}}/>
+                    <i className="fas fa-play" id="play-button" onClick={this.handlePlayPlaylist.bind(this)}/>
                 </div>
             <div id="playlist-scroll">
                 <div id="playlist-container">
@@ -30,6 +30,10 @@ export default class PlaylistContainer extends Component {
             </div>
             </React.Fragment>
         )
+    }
+
+    handlePlayPlaylist() {
+        this.controller.playPlaylist();
     }
 
     handleRefreshPlaylist() {

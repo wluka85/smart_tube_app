@@ -30,16 +30,24 @@ class Controller {
         let videoTemp = new Video(snippet.channelId, snippet.channelTitle,
             snippet.description, snippet.publishedAt, snippet.title, snippet.thumbnails.high.url, video.id.videoId);
         this.model.chosenVideo = videoTemp;
+        this.model.typeContentToPlayInPlayer = 'video';
         this.model.notifyAllObservers();
     }
 
     playVideoFromPlaylist(video) {
         this.model.chosenVideo = video;
+        this.model.typeContentToPlayInPlayer = 'video';
         this.model.notifyAllObservers();
+    }
+
+    playPlaylist() {
+        this.model.typeContentToPlayInPlayer = 'playlist';
+        this.model.notifyAllObservers()
     }
 
     hideSelectedVideo() {
         this.model.chosenVideo = null;
+        this.model.typeContentToPlayInPlayer = null;
         this.model.notifyAllObservers();
     }
 
