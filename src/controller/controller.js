@@ -111,7 +111,7 @@ class Controller {
     }
 
     getPlaylist(etag) {
-        fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + etag, {
+        fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=' + etag, {
             method: 'GET',
             headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken })
         })
@@ -159,6 +159,8 @@ class Controller {
     }
 
     addToPlaylist(videoId, event) {
+        console.log(videoId);
+        console.log(this.model.currentPlaylist.id);
         fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', {
             method: 'POST',
             headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken, 'Accept': 'application/json, text/plain, */*',
@@ -176,6 +178,7 @@ class Controller {
             .then((response) => response.json())
             .then((data) => {
                 this.getPlaylist(this.model.currentPlaylist.id);
+                console.log('response data ', data);
             })
     }
 }
