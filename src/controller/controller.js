@@ -52,16 +52,20 @@ class Controller {
     }
 
     searchVideo(searchCriteria) {
-        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchCriteria}&maxResults=10&type=video`, {
+        if (searchCriteria.length === 0) {
+            this.model.videos = [];
+            this.model.notifyAllObservers();
+        } else {
+            fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchCriteria}&maxResults=10&type=video`, {
             method: 'GET',
             headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken })
-        })
+            })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data.items);
                 this.model.videos = data.items;
                 this.model.notifyAllObservers();
             })
+        }
     }
 
     searchUserPlaylists() {
@@ -71,7 +75,6 @@ class Controller {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data.items);
                 this.model.videos = data.items;
                 this.model.notifyAllObservers();
             })
@@ -94,7 +97,7 @@ class Controller {
             method: 'DELETE',
             headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
         })
-            .then(response => {
+            .then(() => {
                 this.searchUserCatalogs();
             })
     }
@@ -105,7 +108,7 @@ class Controller {
             method: 'DELETE',
             headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
         })
-            .then(response => {
+            .then(() => {
                 this.getPlaylist(playlistId);
             })
     }
@@ -150,8 +153,7 @@ class Controller {
 
         })
             .then((response) => response.json())
-            .then((data) => {
-                console.log(data)
+            .then(() => {
                 this.model.shouldBeShownCatalogCreator = false;
                 this.searchUserCatalogs();
             })
@@ -159,8 +161,6 @@ class Controller {
     }
 
     addToPlaylist(videoId, event) {
-        console.log(videoId);
-        console.log(this.model.currentPlaylist.id);
         fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', {
             method: 'POST',
             headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken, 'Accept': 'application/json, text/plain, */*',
@@ -178,7 +178,6 @@ class Controller {
             .then((response) => response.json())
             .then((data) => {
                 this.getPlaylist(this.model.currentPlaylist.id);
-                console.log('response data ', data);
             })
     }
 }
