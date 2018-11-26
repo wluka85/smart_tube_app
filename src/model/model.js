@@ -25,7 +25,6 @@ export default class Model {
 
         this.videoList = [];
         videos.forEach(element => {
-            console.log(element)
             let result = element.snippet;
             let video = new Video(result.channelId, result.channelTitle,
                 result.description, result.publishedAt, result.title, result.thumbnails.high.url, result.resourceId.videoId, element.id);
@@ -39,14 +38,12 @@ export default class Model {
         array.forEach(element => {
             let playlist = new Playlist(element.id, element.snippet.title, element.snippet.description, element.etag, element.snippet.publishedAt);
             this.catalogs.push(playlist);
-            console.log(playlist)
         })
         
     }
 
     attach(observer) {
         this.observerList.push(observer);
-        console.log(observer)
     }
 
     detach(observer) {

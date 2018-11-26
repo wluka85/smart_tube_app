@@ -1,31 +1,41 @@
-// import React, { Component } from 'react';
-// import SearchBar from './searchBar';
-// import ItemsList from './itemsList';
-// import HeaderContainer from './headerContainer';
+import React, { Component } from 'react';
+import ItemsList from './itemsList';
+import HeaderContainer from './headerContainer';
+import DetailedVideo from './detailedVideo';
+import CatalogContainer from './catalogContainer';
+import CatalogCreatorComponent from './catalogCreatorComponent';
+import PlaylistContainer from './playlistContainer';
 
-// export class AppPage extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       videos: [],
-//       selectedVideo: null,
-//       searchCriteria: ''
-//     }
-//   }
+export class AppPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      videos: [],
+      selectedVideo: null,
+      searchCriteria: ''
+    }
+  }
 
-// //   render() {
-// //     return (
-// //       <div>
-// //         <HeaderContainer />
-// //         <ItemsList 
-// //           searchResults = {this.props.searchCriteria}
-// //           videos = {this.state.videos}
-// //           onUserSelected = {(selectedItem => this.setState({selectedVideo: selectedItem}))}
-// //         />
-// //         <p>{this.state.searchCriteria}</p>
-// //       </div>
-// //     );
-// //   }
-// // }
 
-// export default AppPage;
+  render() {
+    return (
+      <div id="container">
+        <HeaderContainer
+          controller = {this.props.controller}
+          loadPageAction={this.props.loadPageAction}
+        />
+        <div id="main-container">
+          <div id="video-list-container">
+            <ItemsList controller = {this.props.controller}/>
+            <DetailedVideo controller = {this.props.controller}/>
+          </div>
+        </div>
+        <CatalogContainer controller={this.props.controller} />
+        <CatalogCreatorComponent controller={this.props.controller}/>
+        <PlaylistContainer controller={this.props.controller} />
+      </div>
+    );
+  }
+}
+
+export default AppPage;
