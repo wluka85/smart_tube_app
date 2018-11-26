@@ -8,8 +8,8 @@ import ItemsList from './components/itemsList';
 import DetailedVideo from './components/detailedVideo';
 import PlaylistContainer from "./components/playlistContainer";
 import CatalogCreatorComponent from "./components/catalogCreatorComponent";
-require ('../css/headerStyles.css');
-require ('../css/mainWindow.css');
+import '../css/headerStyles.css';
+import '../css/mainWindow.css';
 
 export default class View {
     constructor(controller) {

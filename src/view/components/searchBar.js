@@ -7,8 +7,8 @@ export class SearchBar extends Component {
   // }
 
   onChangeHandler = (event) => {
-    // this.handleSearch(event.target.value);
-    this.props.actionOnChange(event.target.value);
+    const e = event.target.value;
+    setTimeout(() => {this.props.actionOnChange(e);}, 1000);
   }
 
   render() {
