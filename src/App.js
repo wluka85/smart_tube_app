@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import SearchBar from './components/searchBar';
+import AuthorizationComponent from './components/authorizationComponent';
 
 
 export class App extends Component {
   render() {
     return (
-      <div>
-        <h2>Hello!</h2>
+      <div id='container'>
+        <h2 >Hello!</h2>
+        <div id='header-container'>
+          <SearchBar/>
+          <AuthorizationComponent/>
+        </div>
       </div>
     );
   }
