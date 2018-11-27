@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import * as serviceWorker from './serviceWorker';
-import Main from "./main";
-
-const main = new Main();
-
+import ReactDOM from 'react-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
+import App from './App';
 
 
-serviceWorker.unregister();
+ReactDOM.render(
+  <BrowserRouter>
+    <Route exact path='/' component={App} />
+  </BrowserRouter>, document.getElementById('root'));
+
+
