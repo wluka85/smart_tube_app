@@ -7,16 +7,13 @@ class Controller {
         this.model = model;
         this.videos = [];
         this.accessToken = '';
+        this.api = 'https://www.googleapis.com/youtube/v3/';
     }
 
     singIn(accessToken) {
         this.accessToken = accessToken;
         this.model.isSignedIn = true;
         this.model.notifyAllObservers();
-    }
-
-    setSearchCriteria(searchCriteria) {
-        this.searchCriteria = searchCriteria;
     }
 
     prepareFailureSignInMessage() {
@@ -51,76 +48,50 @@ class Controller {
         this.model.notifyAllObservers();
     }
 
-    searchVideo(searchCriteria) {
-        fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchCriteria}&maxResults=10&type=video`, {
+    fetchMethodGet(url, type) {
+        fetch(this.api + url, {
             method: 'GET',
             headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken })
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data.items);
-                this.model.videos = data.items;
-                this.model.notifyAllObservers();
+                this.updateModel(type, data);
             })
     }
 
-    searchUserPlaylists() {
-        fetch(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true`, {
-            method: 'GET',
-            headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.items);
+    updateModel(type, data) {
+        switch (type) {
+            case 'search-videos':
                 this.model.videos = data.items;
-                this.model.notifyAllObservers();
-            })
+                break;
+
+            case 'search-user-catalogs':
+                this.model.setCatalogs(data.items);
+                break;
+
+            case 'search-playlist':
+                this.model.setVideoList(data.items);
+                break;
+        }
+
+        this.model.notifyAllObservers();
+    }
+
+
+    searchVideo(searchCriteria) {
+        const url = `search?part=snippet&q=${searchCriteria}&maxResults=10&type=video`;
+        this.fetchMethodGet(url, 'search-videos');
     }
 
     searchUserCatalogs() {
-        fetch('https://www.googleapis.com/youtube/v3/playlists?part=snippet&mine=true', {
-            method: 'GET',
-            headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
-        })
-        .then(response => response.json())
-        .then(data => {
-            this.model.setCatalogs(data.items);
-            this.model.notifyAllObservers();
-        })
-    }
-
-    deleteCatalog(etag) {
-        fetch('https://www.googleapis.com/youtube/v3/playlists?id=' + etag, {
-            method: 'DELETE',
-            headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
-        })
-            .then(response => {
-                this.searchUserCatalogs();
-            })
-    }
-
-    deletePlaylistElement(elementId, playlistId) {
-        console.log(elementId)
-        fetch('https://www.googleapis.com/youtube/v3/playlistItems?id=' + elementId, {
-            method: 'DELETE',
-            headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
-        })
-            .then(response => {
-                this.getPlaylist(playlistId);
-            })
+        const url = 'playlists?part=snippet&mine=true';
+        this.fetchMethodGet(url, 'search-user-catalogs');
     }
 
     getPlaylist(etag) {
-        fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + etag, {
-            method: 'GET',
-            headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken })
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                let videos = data.items;
-                this.model.setCurrentPlaylist(etag, videos);
-                this.model.notifyAllObservers();
-            })
+        const url = 'playlistItems?part=snippet&maxResults=10&playlistId=' + etag;
+        this.model.setCurrentPlaylist(etag);
+        this.fetchMethodGet(url, 'search-playlist');
     }
 
     getCurrentPlaylist() {
@@ -158,7 +129,7 @@ class Controller {
 
     }
 
-    addToPlaylist(videoId, event) {
+    addToPlaylist(videoId) {
         fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', {
             method: 'POST',
             headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken, 'Accept': 'application/json, text/plain, */*',
@@ -173,9 +144,29 @@ class Controller {
             })
 
         })
-            .then((response) => response.json())
-            .then((data) => {
+            .then((response) => {
                 this.getPlaylist(this.model.currentPlaylist.id);
+            })
+    }
+
+    deleteCatalog(etag) {
+        fetch('https://www.googleapis.com/youtube/v3/playlists?id=' + etag, {
+            method: 'DELETE',
+            headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
+        })
+            .then(response => {
+                this.searchUserCatalogs();
+            })
+    }
+
+    deletePlaylistElement(elementId, playlistId) {
+        console.log(elementId)
+        fetch('https://www.googleapis.com/youtube/v3/playlistItems?id=' + elementId, {
+            method: 'DELETE',
+            headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
+        })
+            .then(response => {
+                this.getPlaylist(playlistId);
             })
     }
 }
