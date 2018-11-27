@@ -48,16 +48,19 @@ class Controller {
         this.model.notifyAllObservers();
     }
 
+
     fetchMethodGet(url, type) {
-        fetch(this.api + url, {
+        fetch(this.api + url,  {
             method: 'GET',
             headers: new Headers({ 'Authorization': 'Bearer ' + this.accessToken })
-        })
+            })
             .then((response) => response.json())
             .then((data) => {
                 this.updateModel(type, data);
             })
+
     }
+
 
     updateModel(type, data) {
         switch (type) {
@@ -77,15 +80,42 @@ class Controller {
         this.model.notifyAllObservers();
     }
 
-
     searchVideo(searchCriteria) {
-        const url = `search?part=snippet&q=${searchCriteria}&maxResults=10&type=video`;
-        this.fetchMethodGet(url, 'search-videos');
+        if (searchCriteria.length === 0) {
+            this.model.videos = [];
+            this.model.notifyAllObservers();
+
+        } else {
+            const url = `search?part=snippet&q=${searchCriteria}&maxResults=10&type=video`;
+            this.fetchMethodGet(url, 'search-videos');
+        }
+
+
     }
 
     searchUserCatalogs() {
         const url = 'playlists?part=snippet&mine=true';
         this.fetchMethodGet(url, 'search-user-catalogs');
+    }
+
+    deleteCatalog(etag) {
+        fetch('https://www.googleapis.com/youtube/v3/playlists?id=' + etag, {
+            method: 'DELETE',
+            headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
+        })
+            .then(() => {
+                this.searchUserCatalogs();
+            })
+    }
+
+    deletePlaylistElement(elementId, playlistId) {
+        fetch('https://www.googleapis.com/youtube/v3/playlistItems?id=' + elementId, {
+            method: 'DELETE',
+            headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
+        })
+            .then(() => {
+                this.getPlaylist(playlistId);
+            })
     }
 
     getPlaylist(etag) {
@@ -121,13 +151,13 @@ class Controller {
 
         })
             .then((response) => response.json())
-            .then((data) => {
-                console.log(data)
+            .then(() => {
                 this.model.shouldBeShownCatalogCreator = false;
                 this.searchUserCatalogs();
             })
 
     }
+
 
     addToPlaylist(videoId) {
         fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', {
