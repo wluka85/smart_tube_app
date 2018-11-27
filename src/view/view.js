@@ -1,15 +1,9 @@
 import React from 'react';
-
 import * as ReactDOM from "react-dom";
 import AuthorizationComponent from "./components/authorizationComponent";
-import CatalogContainer from "./components/catalogContainer";
-import HeaderContainer from './components/headerContainer';
-import ItemsList from './components/itemsList';
-import DetailedVideo from './components/detailedVideo';
-import PlaylistContainer from "./components/playlistContainer";
-import CatalogCreatorComponent from "./components/catalogCreatorComponent";
 import '../css/headerStyles.css';
 import '../css/mainWindow.css';
+import AppPage from './components/appPage';
 
 export default class View {
     constructor(controller) {
@@ -17,34 +11,19 @@ export default class View {
         this.loadPage();
     }
 
-    loadPage() {
+    loadPage () {
         if (this.controller.model.isSignedIn) {
-            ReactDOM.render(this.getSmartTubeContainer(), document.getElementById('root'));
+            ReactDOM.render(<AppPage 
+                controller={this.controller} 
+                loadPageAction={this.loadPage.bind(this)}/>
+                , document.getElementById('root'));
 
         } else {
             ReactDOM.render(<AuthorizationComponent 
                 loadPageAction={this.loadPage.bind(this)} 
-                controller={this.controller}/>, 
-                document.getElementById('root'));
+                controller={this.controller}/>
+                , document.getElementById('root'));
         }
     }
 
-    getSmartTubeContainer() {
-        return (
-            <div id="container">
-                <HeaderContainer
-                    controller = {this.controller}
-                    loadPageAction={this.loadPage.bind(this)}/>
-                <div id="main-container">
-                    <div id="video-list-container">
-                        <ItemsList controller = {this.controller}/>
-                        <DetailedVideo controller = {this.controller}/>
-                    </div>
-                </div>
-                <CatalogContainer controller={this.controller} />
-                <CatalogCreatorComponent controller={this.controller}/>
-                <PlaylistContainer controller={this.controller} />
-            </div>
-        );        
-    }
 }

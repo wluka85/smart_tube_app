@@ -16,22 +16,27 @@ export default class Model {
         this.typeContentToPlayInPlayer = null;
     }
 
-    setCurrentPlaylist(playlistId, videos) {
+    setVideos(videos) {
+        this.videos = videos;
+    }
+
+    setCurrentPlaylist(playlistId) {
         this.catalogs.forEach(element => {
             if (element.id === playlistId) {
                 this.currentPlaylist = element;
             }
         })
 
+    }
+
+    setVideoList(videos) {
         this.videoList = [];
         videos.forEach(element => {
-            console.log(element)
             let result = element.snippet;
             let video = new Video(result.channelId, result.channelTitle,
                 result.description, result.publishedAt, result.title, result.thumbnails.high.url, result.resourceId.videoId, element.id);
             this.videoList.push(video);
         })
-
     }
 
     setCatalogs(array) {
@@ -39,14 +44,16 @@ export default class Model {
         array.forEach(element => {
             let playlist = new Playlist(element.id, element.snippet.title, element.snippet.description, element.etag, element.snippet.publishedAt);
             this.catalogs.push(playlist);
-            console.log(playlist)
         })
+
+        if (this.currentPlaylist === null) {
+            this.currentPlaylist = this.catalogs[0];
+        }
         
     }
 
     attach(observer) {
         this.observerList.push(observer);
-        console.log(observer)
     }
 
     detach(observer) {

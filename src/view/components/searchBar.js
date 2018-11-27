@@ -7,15 +7,16 @@ export class SearchBar extends Component {
   // }
 
   onChangeHandler = (event) => {
-    const e = event.target.value;
-    setTimeout(() => {this.props.actionOnChange(e);}, 1000);
+    if (event.key === 'Enter') {
+      this.props.actionOnChange(event);
+    }
   }
 
   render() {
     return (
       <div className='search-bar'>
         <input type="text"
-          onChange={this.onChangeHandler}
+          onKeyDown={this.onChangeHandler}
           placeholder='Search' />        
       </div>
     );
