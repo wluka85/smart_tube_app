@@ -6,12 +6,8 @@ import {createStore} from 'redux';
 import rootReducer from './reducers/rootReducer';
 import {Provider} from 'react-redux';
 
-import authReducer from './reducers/authReducer';
-
-console.log('root reducer',rootReducer);
 
 const store = createStore(rootReducer);
-
 
 ReactDOM.render(
   <Provider store={store}>

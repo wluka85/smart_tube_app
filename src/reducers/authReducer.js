@@ -1,5 +1,3 @@
-import action from '../actions/index';
-
 const initialState = {
   accessToken: '',
   message: ''
