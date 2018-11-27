@@ -98,26 +98,6 @@ class Controller {
         this.fetchMethodGet(url, 'search-user-catalogs');
     }
 
-    deleteCatalog(etag) {
-        fetch('https://www.googleapis.com/youtube/v3/playlists?id=' + etag, {
-            method: 'DELETE',
-            headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
-        })
-            .then(() => {
-                this.searchUserCatalogs();
-            })
-    }
-
-    deletePlaylistElement(elementId, playlistId) {
-        fetch('https://www.googleapis.com/youtube/v3/playlistItems?id=' + elementId, {
-            method: 'DELETE',
-            headers: new Headers({'Authorization': 'Bearer ' + this.accessToken})
-        })
-            .then(() => {
-                this.getPlaylist(playlistId);
-            })
-    }
-
     getPlaylist(etag) {
         const url = 'playlistItems?part=snippet&maxResults=10&playlistId=' + etag;
         this.model.setCurrentPlaylist(etag);
