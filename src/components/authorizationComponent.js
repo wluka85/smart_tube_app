@@ -25,15 +25,15 @@ class AuthorizationComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('MSTP ', state.message);
+
     return {
-        accessToken: state.accessToken,
-        message: state.message
+        accessToken: state.authReducer.accessToken,
+        message: state.authReducer.message
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
-    console.log('MDTP');
+
     return {
         handleUserLogin: () => dispatch({type: 'USER_LOGGED_IN'}),
         handleLoginFailure: () => dispatch({type: 'USER_NOT_LOGGED_IN'})
