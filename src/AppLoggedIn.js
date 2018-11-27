@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 // import SearchBar from './components/searchBarComponent';
 import AuthorizationComponent from './components/authorizationComponent';
 import CatalogContainer from "./containers/catalogContainer";
-import {Switch} from "react-router";
-import {BrowserRouter, Route} from "react-router-dom";
-import AppLoggedIn from "./AppLoggedIn";
 
 
 export class App extends Component {
   render() {
-        // console.log(this.props.store)
     return (
       <div id='container'>
         <h2 >Hello!</h2>
@@ -17,7 +13,7 @@ export class App extends Component {
           {/*<SearchBar/>*/}
           <AuthorizationComponent/>
         </div>
-          {/*<CatalogContainer/>*/}
+          <CatalogContainer/>
       </div>
     );
   }
