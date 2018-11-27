@@ -12,3 +12,18 @@ const userNotLogIn = () => {
     message: 'Oops!'
   }
 };
+
+const fetchResultsBegin = (searchCriteria) => ({
+  type: 'FETCH_RESULTS_BEGIN',
+  searchCriteria
+});
+
+const fetchResultsSuccess = (results) => ({
+  type: 'FETCH_RESULTS_SUCCESS',
+  results
+});
+
+const fetchResultsError = (error) => ({
+  type: 'FETCH_RESULTS_ERROR',
+  error
+});
