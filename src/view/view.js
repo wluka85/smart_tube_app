@@ -11,7 +11,7 @@ export default class View {
         this.loadPage();
     }
 
-    loadPage() {
+    loadPage () {
         if (this.controller.model.isSignedIn) {
             ReactDOM.render(<AppPage 
                 controller={this.controller} 
