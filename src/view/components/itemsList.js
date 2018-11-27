@@ -23,6 +23,7 @@ export class ItemsList extends Component {
   }
 
   handleAddToPlaylist(videoId, event) {
+    event.stopPropagation();
     this.controller.addToPlaylist(videoId, event);
   }
 
