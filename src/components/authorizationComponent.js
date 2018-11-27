@@ -36,8 +36,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
     return {
-        handleUserLogin: () => dispatch({type: 'USER_LOGGED_IN'}),
-        handleLoginFailure: () => dispatch({type: 'USER_NOT_LOGGED_IN'})
+        handleUserLogin: (response) => dispatch({type: 'USER_LOGGED_IN', accessToken: response.accessToken}),
+        handleLoginFailure: () => dispatch({type: 'USER_NOT_LOGGED_IN', message: 'Ops! Wrong Login or Password'})
     };
 };
 
