@@ -13,13 +13,16 @@ export default class View {
 
     loadPage() {
         if (this.controller.model.isSignedIn) {
-            ReactDOM.render(<AppPage controller={this.controller} loadPageAction={this.loadPage.bind(this)}/>, document.getElementById('root'));
+            ReactDOM.render(<AppPage 
+                controller={this.controller} 
+                loadPageAction={this.loadPage.bind(this)}/>
+                , document.getElementById('root'));
 
         } else {
             ReactDOM.render(<AuthorizationComponent 
                 loadPageAction={this.loadPage.bind(this)} 
-                controller={this.controller}/>, 
-                document.getElementById('root'));
+                controller={this.controller}/>
+                , document.getElementById('root'));
         }
     }
 
