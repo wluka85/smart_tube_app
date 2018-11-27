@@ -34,7 +34,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    console.log('MDTP');
+
     return {
         handleUserLogin: () => dispatch({type: 'USER_LOGGED_IN'}),
         handleLoginFailure: () => dispatch({type: 'USER_NOT_LOGGED_IN'})
