@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchBar from './components/searchBar';
+// import SearchBar from './components/searchBarComponent';
 import AuthorizationComponent from './components/authorizationComponent';
 
 
@@ -9,7 +9,7 @@ export class App extends Component {
       <div id='container'>
         <h2 >Hello!</h2>
         <div id='header-container'>
-          <SearchBar/>
+          {/*<SearchBar/>*/}
           <AuthorizationComponent/>
         </div>
       </div>

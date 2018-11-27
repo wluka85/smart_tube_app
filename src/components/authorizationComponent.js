@@ -7,7 +7,7 @@ class AuthorizationComponent extends Component {
 
     render() {
         const { handleUserLogin, handleLoginFailure, message } = this.props;
-        console.log(this.props);
+
         return(
             <div className="sign-in-window">
                 <div id="sign-in-container">
@@ -26,7 +26,7 @@ class AuthorizationComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('MSTP ', state.authReducer.message);
+    console.log('MSTP ', state.authReducer.accessToken);
     return {
         accessToken: state.authReducer.accessToken,
         message: state.authReducer.message
