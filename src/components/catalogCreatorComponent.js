@@ -26,13 +26,13 @@ class CatalogCreatorComponent extends Component {
                     </form>
                 </div>
             )
-        }
+        };
 
         const renderEmpty = () => {
             return (
                 <div></div>
             )
-        }
+        };
 
         let renderComponent = '';
         showAddNewCatalogWindow ? renderComponent = renderFull() : renderComponent = renderEmpty();
@@ -42,11 +42,10 @@ class CatalogCreatorComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         showAddNewCatalogWindow: state.catalogReducer.showAddNewCatalogWindow
     };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
