@@ -1,4 +1,4 @@
-const userLogIn = (token) => {
+export const userLogIn = (token) => {
   return {
     type: 'USER_LOGGED_IN',
     token,
@@ -6,24 +6,24 @@ const userLogIn = (token) => {
   }
 };
 
-const userNotLogIn = () => {
+export const userNotLogIn = () => {
   return {
     type: 'USER_NOT_LOGGED_IN',
     message: 'Oops!'
   }
 };
 
-const fetchResultsBegin = (searchCriteria) => ({
+export const fetchResultsBegin = (searchCriteria) => ({
   type: 'FETCH_RESULTS_BEGIN',
   searchCriteria
 });
 
-const fetchResultsSuccess = (results) => ({
+export const fetchResultsSuccess = (results) => ({
   type: 'FETCH_RESULTS_SUCCESS',
   results
 });
 
-const fetchResultsError = (error) => ({
+export const fetchResultsError = (error) => ({
   type: 'FETCH_RESULTS_ERROR',
   error
 });
