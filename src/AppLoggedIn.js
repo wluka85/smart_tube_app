@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import SearchBar from './components/searchBarComponent';
 import AuthorizationComponent from './components/authorizationComponent';
 import CatalogContainer from "./components/catalogComponent";
+import CatalogCreatorComponent from "./components/catalogCreatorComponent";
 
 
 export class App extends Component {
@@ -14,6 +15,7 @@ export class App extends Component {
           <AuthorizationComponent/>
         </div>
           <CatalogContainer/>
+          <CatalogCreatorComponent/>
       </div>
     );
   }
