@@ -14,9 +14,9 @@ class CatalogComponent extends Component {
             );
         }
 
-        const catalogComponent = (id, title) => {
+        const catalogComponent = (i, id, title) => {
             return (
-                <div className="catalog-component">
+                <div className="catalog-component" key={i}>
                     <div className="catalog-name">{ title }</div>
                     <i className="fas fa-trash-alt" onClick={() => {handleDeleteCatalog(id)}}/>
                 </div>
@@ -25,8 +25,8 @@ class CatalogComponent extends Component {
 
         const catalogComponentList =(
                 <React.Fragment>
-                    {catalogList.map((element) => {
-                        return catalogComponent(element.id, element.title)})
+                    {catalogList.map((element, i) => {
+                        return catalogComponent(i, element.id, element.title)})
                     }
                 </React.Fragment>
         );
@@ -41,12 +41,11 @@ class CatalogComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         accessToken: state.authReducer.accessToken,
         catalogList: state.catalogReducer.catalogList
     };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
