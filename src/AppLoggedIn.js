@@ -5,6 +5,8 @@ import CatalogContainer from "./components/catalogComponent";
 import CatalogCreatorComponent from "./components/catalogCreatorComponent";
 import {Redirect} from "react-router";
 import connect from "react-redux/es/connect/connect";
+import SearchBarComponent from "./components/searchBarComponent";
+import ItemsListComponent from "./components/itemsListComponent";
 
 
 export class AppLoggedIn extends Component {
@@ -21,11 +23,15 @@ export class AppLoggedIn extends Component {
           {redirectElement}
         <h2 >Hello!</h2>
         <div id='header-container'>
-          {/*<SearchBar/>*/}
+            <SearchBarComponent/>
           <AuthorizationComponent/>
         </div>
           <CatalogContainer/>
           <CatalogCreatorComponent/>
+          <div id="video-list-container">
+              <ItemsListComponent/>
+              {/* <DetailedVideoComponent/> */}
+          </div>
       </div>
     );
   }

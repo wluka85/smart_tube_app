@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import SearchBar from './components/searchBarComponent';
+import SearchBarComponent from './components/searchBarComponent';
 import AuthorizationComponent from './components/authorizationComponent';
 import CatalogContainer from "./components/catalogComponent";
 import {Redirect, Switch} from "react-router";
@@ -7,7 +7,10 @@ import {BrowserRouter, Route} from "react-router-dom";
 import AppLoggedIn from "./AppLoggedIn";
 import {fetchAddCatalog, fetchUserCatalogs} from "./actions/catalogAction";
 import connect from "react-redux/es/connect/connect";
-
+import ItemsListComponent from './components/itemsListComponent';
+import DetailedVideoComponent from './components/detailedVideoComponent';
+// import './css/headerStyles.css';
+// import './css/mainWindow.css';
 
 export class App extends Component {
   render() {
@@ -22,8 +25,12 @@ export class App extends Component {
           {redirectElement}
         <h2 >Hello!</h2>
         <div id='header-container'>
-          {/*<SearchBar/>*/}
+          <SearchBarComponent/>
           <AuthorizationComponent/>
+          <div id="video-list-container">
+            <ItemsListComponent/>
+            {/* <DetailedVideoComponent/> */}
+          </div>
         </div>
           {/*<CatalogContainer/>*/}
       </div>

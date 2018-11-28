@@ -36,7 +36,6 @@ class AuthorizationComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
-
     return {
         accessToken: state.authReducer.accessToken,
         message: state.authReducer.message,
