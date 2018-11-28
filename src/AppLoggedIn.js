@@ -3,12 +3,22 @@ import React, { Component } from 'react';
 import AuthorizationComponent from './components/authorizationComponent';
 import CatalogContainer from "./components/catalogComponent";
 import CatalogCreatorComponent from "./components/catalogCreatorComponent";
+import {Redirect} from "react-router";
+import connect from "react-redux/es/connect/connect";
 
 
-export class App extends Component {
+export class AppLoggedIn extends Component {
   render() {
+      const {redirect} = this.props;
+      let redirectElement = '';
+      if (window.location.pathname !== redirect) {
+          redirectElement = <Redirect to={redirect}/>
+      }
+
+
     return (
       <div id='container'>
+          {redirectElement}
         <h2 >Hello!</h2>
         <div id='header-container'>
           {/*<SearchBar/>*/}
@@ -21,4 +31,11 @@ export class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        redirect: state.authReducer.redirect
+    };
+}
+
+
+export default AppLoggedIn = connect(mapStateToProps)(AppLoggedIn);
