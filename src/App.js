@@ -5,7 +5,10 @@ import CatalogContainer from "./components/catalogComponent";
 import {Switch} from "react-router";
 import {BrowserRouter, Route} from "react-router-dom";
 import AppLoggedIn from "./AppLoggedIn";
-
+import ItemsListComponent from './components/itemsListComponent';
+import DetailedVideoComponent from './components/detailedVideoComponent';
+// import './css/headerStyles.css';
+// import './css/mainWindow.css';
 
 export class App extends Component {
   render() {
@@ -16,6 +19,10 @@ export class App extends Component {
         <div id='header-container'>
           <SearchBarComponent/>
           <AuthorizationComponent/>
+          <div id="video-list-container">
+            <ItemsListComponent/>
+            {/* <DetailedVideoComponent/> */}
+          </div>
         </div>
           {/*<CatalogContainer/>*/}
       </div>
