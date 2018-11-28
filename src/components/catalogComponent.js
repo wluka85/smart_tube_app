@@ -1,15 +1,50 @@
 import React, {Component} from "react";
-import '../../css/catalog.css';
+import connect from "react-redux/es/connect/connect";
+import {fetchUserCatalogs} from "../actions/catalogAction";
+import '../css/catalog.css';
 
-export default class CatalogComponent extends Component {
+class CatalogComponent extends Component {
 
     render() {
+        const {accessToken, catalogList, handleDisplayCatalogs} = this.props;
+
+        const catalogComponent = (id, title) => {
+            return (
+                <div className="catalog-component">
+                    <div className="catalog-name">{ title }</div>
+                    <i className="fas fa-trash-alt"/>
+                </div>
+            )
+        };
+
+        const catalogComponentList =(
+                <React.Fragment>
+                    {catalogList.map((element) => {
+                        return catalogComponent(element.id, element.title)})
+                    }
+                </React.Fragment>
+        );
+
         return (
-            <div className="catalog-component">
-                <div className="catalog-name" onClick={() => {this.props.catalogAction(this.props.id)}}> {this.props.name}</div>
-                <i className="fas fa-trash-alt" onClick={() => {this.props.deleteAction(this.props.id)}}/>
+            <div id="catalog-container">
+                {catalogComponentList}
+                {/*<div id="add-new" onClick={this.handleAddNewCatalog.bind(this)}>Add new</div>*/}
             </div>
         )
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        accessToken: state.authReducer.accessToken,
+        catalogList: state.catalogReducer.catalogList
+    };
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleDisplayCatalogs: () => dispatch(fetchUserCatalogs()),
+    };
+};
+
+export default CatalogComponent = connect(mapStateToProps, mapDispatchToProps)(CatalogComponent);

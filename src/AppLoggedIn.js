@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import SearchBar from './components/searchBarComponent';
 import AuthorizationComponent from './components/authorizationComponent';
-import CatalogContainer from "./containers/catalogContainer";
+import CatalogContainer from "./components/catalogComponent";
 
 
 export class App extends Component {

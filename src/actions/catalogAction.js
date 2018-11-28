@@ -1,4 +1,5 @@
 import {ThunkAction} from "redux-thunk";
+import Playlist, {getCatalogs} from "../model/playlist";
 
 const userCatalogsFetched = catalogs => ({
     type: "FETCH_CATALOGS_SUCCESS",
@@ -15,5 +16,8 @@ export const fetchUserCatalogs = () => (dispatch, getState) => {
         headers: new Headers({ 'Authorization': 'Bearer ' + encodeURIComponent(getState().authReducer.accessToken) })
     })
         .then((response) => response.json())
-        .then((data) => dispatch(userCatalogsFetched(data)));
+        .then((data) => {
+            let catalogs = getCatalogs(data.items);
+            dispatch(userCatalogsFetched(catalogs));
+        });
 };
