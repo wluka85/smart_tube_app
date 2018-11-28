@@ -6,7 +6,13 @@ import '../css/catalog.css';
 class CatalogComponent extends Component {
 
     render() {
-        const {accessToken, catalogList, handleDisplayCatalogs} = this.props;
+        const {accessToken, catalogList, handleActionAddNew} = this.props;
+        let addNewButtonComponent;
+        if (accessToken.length > 0) {
+            addNewButtonComponent = (
+                <div id="add-new" onClick={handleActionAddNew}>Add new</div>
+            );
+        }
 
         const catalogComponent = (id, title) => {
             return (
@@ -28,13 +34,14 @@ class CatalogComponent extends Component {
         return (
             <div id="catalog-container">
                 {catalogComponentList}
-                {/*<div id="add-new" onClick={this.handleAddNewCatalog.bind(this)}>Add new</div>*/}
+                {addNewButtonComponent}
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         accessToken: state.authReducer.accessToken,
         catalogList: state.catalogReducer.catalogList
@@ -44,6 +51,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleDisplayCatalogs: () => dispatch(fetchUserCatalogs()),
+        handleActionAddNew: () => dispatch({type: 'SHOW_ADD_NEW_CATALOG', showAddNewCatalogWindow: true})
     };
 };
 
