@@ -2,11 +2,12 @@ import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
 import {deleteCatalog, fetchUserCatalogs} from "../actions/catalogAction";
 import '../css/catalog.css';
+import {fetchCurrentPlaylist} from "../actions/playlistAction";
 
 class CatalogComponent extends Component {
 
     render() {
-        const {accessToken, catalogList, handleActionAddNew, handleDeleteCatalog} = this.props;
+        const {accessToken, catalogList, handleActionAddNew, handleDeleteCatalog, handleDisplayPlaylist} = this.props;
         let addNewButtonComponent;
         if (accessToken.length > 0) {
             addNewButtonComponent = (
@@ -14,10 +15,10 @@ class CatalogComponent extends Component {
             );
         }
 
-        const catalogComponent = (i, id, title) => {
+        const catalogComponent = (playlist, i, id, title) => {
             return (
                 <div className="catalog-component" key={i}>
-                    <div className="catalog-name">{ title }</div>
+                    <div className="catalog-name" onClick={() => {handleDisplayPlaylist(playlist)}}>{ title }</div>
                     <i className="fas fa-trash-alt" onClick={() => {handleDeleteCatalog(id)}}/>
                 </div>
             )
@@ -26,7 +27,7 @@ class CatalogComponent extends Component {
         const catalogComponentList =(
                 <React.Fragment>
                     {catalogList.map((element, i) => {
-                        return catalogComponent(i, element.id, element.title)})
+                        return catalogComponent(element, i, element.id, element.title)})
                     }
                 </React.Fragment>
         );
@@ -53,8 +54,11 @@ const mapDispatchToProps = (dispatch) => {
         handleActionAddNew: () => dispatch({type: 'SHOW_ADD_NEW_CATALOG', showAddNewCatalogWindow: true}),
         handleDeleteCatalog: (playlistId) => {
             dispatch(deleteCatalog(playlistId));
+        },
+        handleDisplayPlaylist: (playlist) => {
+            dispatch(fetchCurrentPlaylist(playlist));
         }
     };
-};
+}
 
 export default CatalogComponent = connect(mapStateToProps, mapDispatchToProps)(CatalogComponent);
