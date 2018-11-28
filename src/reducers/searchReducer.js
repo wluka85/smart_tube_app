@@ -19,7 +19,7 @@ const searchReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        items: action.results
+        items: state.items.concat(action.items)
       };
     case 'FETCH_RESULTS_ERROR':
       return {
