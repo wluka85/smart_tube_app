@@ -43,3 +43,14 @@ export const fetchAddCatalog = (title, description) => (dispatch, getState) => {
             dispatch(fetchUserCatalogs());
         })
 };
+
+export const deleteCatalog = (playlistId) => (dispatch, getState) => {
+    fetch(api+ 'playlists?id=' + playlistId, {
+        method: 'DELETE',
+        headers: new Headers({'Authorization': 'Bearer ' + encodeURIComponent(getState().authReducer.accessToken)})
+    })
+        .then(response => {
+            dispatch(fetchUserCatalogs());
+        })
+
+}

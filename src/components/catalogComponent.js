@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
-import {fetchUserCatalogs} from "../actions/catalogAction";
+import {deleteCatalog, fetchUserCatalogs} from "../actions/catalogAction";
 import '../css/catalog.css';
 
 class CatalogComponent extends Component {
 
     render() {
-        const {accessToken, catalogList, handleActionAddNew} = this.props;
+        const {accessToken, catalogList, handleActionAddNew, handleDeleteCatalog} = this.props;
         let addNewButtonComponent;
         if (accessToken.length > 0) {
             addNewButtonComponent = (
@@ -18,7 +18,7 @@ class CatalogComponent extends Component {
             return (
                 <div className="catalog-component">
                     <div className="catalog-name">{ title }</div>
-                    <i className="fas fa-trash-alt"/>
+                    <i className="fas fa-trash-alt" onClick={() => {handleDeleteCatalog(id)}}/>
                 </div>
             )
         };
@@ -51,7 +51,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleDisplayCatalogs: () => dispatch(fetchUserCatalogs()),
-        handleActionAddNew: () => dispatch({type: 'SHOW_ADD_NEW_CATALOG', showAddNewCatalogWindow: true})
+        handleActionAddNew: () => dispatch({type: 'SHOW_ADD_NEW_CATALOG', showAddNewCatalogWindow: true}),
+        handleDeleteCatalog: (playlistId) => {
+            dispatch(deleteCatalog(playlistId));
+        }
     };
 };
 
