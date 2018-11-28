@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {fetchResultsBegin} from '../actions/index';
+import {fetchSearchResults} from '../actions/searchActions';
 
 export class SearchBarComponent extends Component {
 
@@ -13,12 +13,11 @@ export class SearchBarComponent extends Component {
           onSubmit={e => {
             e.preventDefault();
             onSubmit(e);
-            console.log(e.target.querySelector('input').value);
+            e.target.querySelector('input').value = '';
           }}>
           <input type="text" placeholder='Search' />
           <input type="submit" value="Search"/>
         </form>
-          <div>{searchCriteria}</div>
                 
       </div>
     );
@@ -27,13 +26,14 @@ export class SearchBarComponent extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    searchCriteria: state.searchReducer.searchCriteria
+    searchCriteria: state.searchReducer.searchCriteria,
+    items: state.searchReducer.items
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSubmit: (e)=> dispatch(fetchResultsBegin(e.target.querySelector('input').value))
+    onSubmit: (e)=> dispatch(fetchSearchResults(e.target.querySelector('input').value))
   }
 }
 
