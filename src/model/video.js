@@ -7,6 +7,7 @@ export default class Video {
         this.publishedAt = publishedAt;
         this.title = title;
         this.imageURL = imageURL;
+        this.videoId = videoId;
         this.playlistElementId = playlistElementId;
     }
 }

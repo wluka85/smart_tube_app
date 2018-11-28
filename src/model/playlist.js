@@ -11,7 +11,6 @@ export default class Playlist {
 }
 
 export const getVideoList = (videos) => {
-    console.log('in getVideoList', videos);
     let videoList = [];
     videos.forEach(element => {
         let result = element.snippet;
@@ -21,8 +20,8 @@ export const getVideoList = (videos) => {
             result.description, 
             result.publishedAt, 
             result.title, 
-            result.thumbnails.high.url,
-            element.id);
+            result.thumbnails.default.url,
+            element.id.videoId);
         videoList.push(video);
     });
     return videoList;

@@ -3,7 +3,8 @@ import SearchBarComponent from './components/searchBarComponent';
 import AuthorizationComponent from './components/authorizationComponent';
 import ItemsListComponent from './components/itemsListComponent';
 import DetailedVideoComponent from './components/detailedVideoComponent';
-
+// import './css/headerStyles.css';
+// import './css/mainWindow.css';
 
 export class App extends Component {
   render() {
@@ -15,7 +16,7 @@ export class App extends Component {
           <AuthorizationComponent/>
           <div id="video-list-container">
             <ItemsListComponent/>
-            <DetailedVideoComponent/>
+            {/* <DetailedVideoComponent/> */}
           </div>
         </div>
       </div>
