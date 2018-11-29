@@ -4,7 +4,6 @@ import AuthorizationComponent from './components/authorizationComponent';
 import {Redirect} from "react-router";
 import connect from "react-redux/es/connect/connect";
 import ItemsListComponent from './components/itemsListComponent';
-import DetailedVideoComponent from './components/detailedVideoComponent';
 // import './css/headerStyles.css';
 // import './css/mainWindow.css';
 

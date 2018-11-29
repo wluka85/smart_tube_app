@@ -4,8 +4,9 @@ import ItemsListVideoComponent from './itemsListVideoComponent';
 import {openVideo} from '../actions/videoActions';
 import {fetchAddToPlaylist} from "../actions/playlistAction";
 import DetailedVideoComponent from './detailedVideoComponent';
+import withLoading from './hoc/withLoading';
 
-
+const DetailedVideoComponentWithLoading = withLoading(DetailedVideoComponent)
 export class ItemsListComponent extends Component {
 
   renderItemsList () {
@@ -24,7 +25,7 @@ export class ItemsListComponent extends Component {
           );
         })}
       </ul>
-      <DetailedVideoComponent/>
+      <DetailedVideoComponentWithLoading/>
       </React.Fragment>
     );
   }

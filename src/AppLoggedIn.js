@@ -7,7 +7,6 @@ import {Redirect} from "react-router";
 import connect from "react-redux/es/connect/connect";
 import SearchBarComponent from "./components/searchBarComponent";
 import ItemsListComponent from "./components/itemsListComponent";
-import DetailedVideoComponent from './components/detailedVideoComponent';
 import PlaylistComponent from "./components/playlistComponent";
 
 
