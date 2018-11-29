@@ -38,4 +38,10 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default ItemsListComponent = connect(mapStateToProps)(ItemsListComponent);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    openVideo: (video) => dispatch(openVideo(video))
+  }
+};
+
+export default ItemsListComponent = connect(mapStateToProps, mapDispatchToProps)(ItemsListComponent);

@@ -1,18 +1,20 @@
 const initialState = {
   videoId: '',
-  imageURL: '',
+  description: '',
   title: '',
+  playlistElementId: '',
   showVideo: false
 };
 
 const videoReducer = (state = initialState, action) => {
   switch(action.type) {
-    case 'VIDEO_CLICKED':
+    case 'VIDEO_ITEM_CLICKED':
       return {
         ...state,
         videoId: action.videoId,
-        imageURL: action.imageURL,
+        description: action.description,
         title: action.title,
+        playlistElementId: action.playlistElementId,
         showVideo: true
       };
     case 'VIDEO_CLOSED':

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const itemsListVideo = ({onClick, title, imageURL, videoId}) => {
   return (
@@ -11,10 +11,6 @@ const itemsListVideo = ({onClick, title, imageURL, videoId}) => {
           <div className="media-body">
             <div className="media-heading">{title}</div>
           </div>
-        </div>
-        <div>
-          <button className='add-to-playlist-button'
-                  onClick={(event) => this.onUserAddToPlaylist(this.video.id.videoId, event)}>Add to playlist</button>
         </div>
       </li>
     </div>

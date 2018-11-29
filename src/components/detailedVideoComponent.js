@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-class DetailedVideo extends Component {
+class DetailedVideoComponent extends Component {
 
   // constructor(props) {
   //   super();
@@ -50,34 +51,45 @@ class DetailedVideo extends Component {
   }
 
   renderFull() {
+    const { title, description} = this.props;
     return (
-      <div className='modal' onClick={(event) => this.handleUserUnselect(event)}>
+      <div className='modal' >
         <div className="video-container">
           <div className="embed">
             <iframe className="embed-item video-window" src={this.url} title="video" allowFullScreen frameBorder="0" ></iframe>
           </div>
           <div className="details">
-            {/* <div>{this.state.titleContent}</div>
-            <div>{this.state.descriptionContent}</div> */}
+            <div>{title}</div>
+            <div>{description}</div>
           </div>
         </div>
       </div>
     );
   }
 
-//   render() {
-//     if (!this.state.typeContentToPlayInPlayer) {
-//       return this.renderEmpty();
+  render() {
+    const { videoId, playlistElementId } = this.props;
+    if (!this.state.typeContentToPlayInPlayer) {
+      return this.renderEmpty();
 
-//     } else if (this.state.typeContentToPlayInPlayer === 'video'){
-//       this.videoId = this.state.chosenVideo.videoId;
-//       this.url = `https://www.youtube.com/embed/${this.state.chosenVideo.videoId}?autoplay=${this.state.autoPlay}&loop=${this.state.loopVideo}&playlist=${this.state.chosenVideo.videoId}`;
-//       return this.renderFull();
-//     } else if (this.state.typeContentToPlayInPlayer === 'playlist') {
-//       this.url = `http://www.youtube.com/embed?autoplay=${this.state.autoPlay}&loop=${this.state.loopVideo}&listType=playlist&list=${this.state.currentPlaylist.id}`
-//         return this.renderFull();
-//     }
-//   }
+    } else if (this.state.typeContentToPlayInPlayer === 'video'){
+      this.videoId = this.state.chosenVideo.videoId;
+      this.url = `https://www.youtube.com/embed/${videoId}?playlist=${videoId}`;
+      return this.renderFull();
+    } else if (this.state.typeContentToPlayInPlayer === 'playlist') {
+      this.url = `http://www.youtube.com/embed?listType=playlist&list=${playlistElementId}`
+        return this.renderFull();
+    }
+  }
 }
 
-export default DetailedVideo;
+const mapStateToProps = (state) => {
+  return {
+    videoId: state.videoReducer.videoId,
+    title: state.videoReducer.title,
+    description: state.videoReducer.description,
+    playlistElementId: state.videoReducer.playlistElementId
+  }
+};
+
+export default DetailedVideoComponent = connect(mapStateToProps)(DetailedVideoComponent);
