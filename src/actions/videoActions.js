@@ -7,3 +7,9 @@ export const openVideo = (video) => ({
   title: video.title,
   playlistElementId: video.playlistElementId
 });
+
+export const closeVideo = () => {
+  return {
+    type: 'VIDEO_CLOSED'
+  }
+};

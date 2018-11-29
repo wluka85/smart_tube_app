@@ -41,7 +41,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleOpenVideo: (video) => {
-      console.log(video);
       dispatch(openVideo(video))}
   }
 };
