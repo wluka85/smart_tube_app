@@ -4,12 +4,6 @@ import {closeVideo} from '../actions/videoActions';
 
 class DetailedVideoComponent extends Component {
 
-  renderEmpty() {
-    return (
-      <div></div>
-    );
-  }
-
   renderFull() {
     const { title, description, handleCloseVideo } = this.props;
     return (

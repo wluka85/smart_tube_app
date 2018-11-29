@@ -4,8 +4,9 @@ import AuthorizationComponent from './components/authorizationComponent';
 import {Redirect} from "react-router";
 import connect from "react-redux/es/connect/connect";
 import ItemsListComponent from './components/itemsListComponent';
+import HeaderContainer from './components/headerContainer';
 // import './css/headerStyles.css';
-// import './css/mainWindow.css';
+import './css/mainWindow.css';
 
 export class App extends Component {
   render() {
@@ -20,8 +21,9 @@ export class App extends Component {
         {redirectElement}
         <h2 >Hello!</h2>
         <div id='header-container'>
-          <SearchBarComponent/>
-          <AuthorizationComponent/>
+            <HeaderContainer/>
+          {/* <SearchBarComponent/>
+          <AuthorizationComponent/> */}
           <div id="video-list-container">
             <ItemsListComponent/>
           </div>

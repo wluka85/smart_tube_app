@@ -8,6 +8,7 @@ import connect from "react-redux/es/connect/connect";
 import SearchBarComponent from "./components/searchBarComponent";
 import ItemsListComponent from "./components/itemsListComponent";
 import PlaylistComponent from "./components/playlistComponent";
+import HeaderContainer from './components/headerContainer';
 
 
 export class AppLoggedIn extends Component {
@@ -24,8 +25,9 @@ export class AppLoggedIn extends Component {
           {redirectElement}
         <h2 >Hello!</h2>
         <div id='header-container'>
-            <SearchBarComponent/>
-          <AuthorizationComponent/>
+            {/* <SearchBarComponent/>
+          <AuthorizationComponent/> */}
+          <HeaderContainer/>
         </div>
           <CatalogContainer/>
           <PlaylistComponent/>
