@@ -25,8 +25,17 @@ export const fetchCurrentPlaylist = (playlist) => (dispatch, getState) => {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
             dispatch(currentPlaylistFetched(playlist));
             dispatch(playlistVideosFetched(getVideoList(data.items)));
         });
+};
+
+export const fetchDeletePlaylistItem = (playlistElementId, playlist) => (dispatch, getState) => {
+    fetch(api + 'playlistItems?id=' + playlistElementId, {
+        method: 'DELETE',
+        headers: new Headers({'Authorization': 'Bearer ' + encodeURIComponent(getState().authReducer.accessToken) })
+    })
+        .then(() => {
+            dispatch(fetchCurrentPlaylist(playlist));
+        })
 };

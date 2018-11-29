@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {fetchUserCatalogs} from "../actions/catalogAction";
 import connect from "react-redux/es/connect/connect";
 import '../css/playlist.css';
+import {fetchDeletePlaylistItem} from "../actions/playlistAction";
 
 class PlaylistComponent extends Component {
 
@@ -18,7 +19,7 @@ class PlaylistComponent extends Component {
                     <img src={imageURL} alt={title} className="video-picture"/>
                     <div className="video-name"> {title}</div>
                     <div className="video-buttons">
-                        <i className="fas fa-trash-alt" onClick={() => {handleDeletePlaylistItem(playlistElementId)}}/>
+                        <i className="fas fa-trash-alt" onClick={() => {handleDeletePlaylistItem(playlistElementId, currentPlaylist)}}/>
                         <i className="fas fa-play" id="play-button" onClick={() => {handlePlayVideo(video)}}/>
                     </div>
                 </div>
@@ -59,7 +60,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleDeletePlaylistItem: () => dispatch(fetchUserCatalogs()),
+        handleDeletePlaylistItem: (playlistElementId, playlist) => dispatch(fetchDeletePlaylistItem(playlistElementId, playlist)),
         handlePlayVideo: () => dispatch(fetchUserCatalogs()),
         handlePlayPlaylist: () => dispatch(fetchUserCatalogs()),
 
