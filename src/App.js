@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import SearchBarComponent from './components/searchBarComponent';
-import AuthorizationComponent from './components/authorizationComponent';
 import {Redirect} from "react-router";
 import connect from "react-redux/es/connect/connect";
 import ItemsListComponent from './components/itemsListComponent';
@@ -22,13 +20,10 @@ export class App extends Component {
         <h2 >Hello!</h2>
         <div id='header-container'>
             <HeaderContainer/>
-          {/* <SearchBarComponent/>
-          <AuthorizationComponent/> */}
           <div id="video-list-container">
             <ItemsListComponent/>
           </div>
         </div>
-          {/*<CatalogContainer/>*/}
       </div>
     );
   }

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-// import SearchBar from './components/searchBarComponent';
-import AuthorizationComponent from './components/authorizationComponent';
 import CatalogContainer from "./components/catalogComponent";
 import CatalogCreatorComponent from "./components/catalogCreatorComponent";
 import {Redirect} from "react-router";
 import connect from "react-redux/es/connect/connect";
-import SearchBarComponent from "./components/searchBarComponent";
 import ItemsListComponent from "./components/itemsListComponent";
 import PlaylistComponent from "./components/playlistComponent";
 import HeaderContainer from './components/headerContainer';
@@ -25,8 +22,6 @@ export class AppLoggedIn extends Component {
           {redirectElement}
         <h2 >Hello!</h2>
         <div id='header-container'>
-            {/* <SearchBarComponent/>
-          <AuthorizationComponent/> */}
           <HeaderContainer/>
         </div>
           <CatalogContainer/>
