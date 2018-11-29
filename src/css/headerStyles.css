@@ -16,14 +16,31 @@
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
-.search-bar input {
+.search-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-field {
   padding: 10px;
   min-width: 350px;
-  width: 100%;
+  width: 80%;
   justify-self: center;
-  border-radius: 2px;
+  border-radius: 2px 0 0 2px;
   border: 1px solid rgb(179, 179, 179);
 }
+
+.search-button {
+    padding: 10px;
+    border-radius: 0 2px 2px 0;
+    background-color: white;
+    border: 1px solid rgb(199, 199, 199);
+}
+.search-button:hover {
+    cursor: pointer;
+    background-color: rgb(243, 243, 243);
+}
+
 @media only screen and (max-width: 650px) {
   #header-container {
     flex-direction: column;

@@ -8,15 +8,15 @@ export class SearchBarComponent extends Component {
     const {onSubmit, searchCriteria} = this.props;
     console.log('search ', searchCriteria);
     return (
-      <div className='search-bar'>
-        <form 
+      <div >
+        <form className='search-bar'
           onSubmit={e => {
             e.preventDefault();
             onSubmit(e);
             e.target.querySelector('input').value = '';
           }}>
-          <input type="text" placeholder='Search' />
-          <input type="submit" value="Search"/>
+          <input className='search-field' type="text" placeholder='Search' />
+          <input className='search-button' type="submit" value="Search"/>
         </form>
                 
       </div>
