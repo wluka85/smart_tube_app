@@ -20,7 +20,7 @@ class DetailedVideoComponent extends Component {
           </div>
           <div className="details">
             <div>{title}</div>
-            <div>{description}</div>
+            <div>{description.slice(0,200)}</div>
           </div>
         </div>
       </div>
@@ -39,10 +39,10 @@ class DetailedVideoComponent extends Component {
     const { videoId, showVideo, playlistId } = this.props;
     
     if (this.isVideoLoads(videoId, showVideo) || this.isNotVideoChosen(showVideo)) {
-      return this.renderEmpty();
+        return this.renderEmpty();
     } else if (playlistId !== '' && showVideo) {
-      this.url = `http://www.youtube.com/embed?listType=playlist&list=${playlistId}`;
-      return this.renderFull();
+        this.url = `http://www.youtube.com/embed?listType=playlist&list=${playlistId}`;
+        return this.renderFull();
     }
     this.url = `https://www.youtube.com/embed/${videoId}`;
     return this.renderFull();
@@ -56,7 +56,7 @@ const mapStateToProps = (state) => {
     description: state.videoReducer.description,
     showVideo: state.videoReducer.showVideo,
     isLoggedIn: state.authReducer.accessToken,
-      playlistId: state.videoReducer.playlistId
+    playlistId: state.videoReducer.playlistId
   }
 };
 

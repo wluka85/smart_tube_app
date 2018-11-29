@@ -3,7 +3,7 @@ const initialState = {
   description: '',
   title: '',
   showVideo: false,
-    playlistId: ''
+  playlistId: ''
 };
 
 const videoReducer = (state = initialState, action) => {
