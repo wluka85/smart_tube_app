@@ -10,7 +10,7 @@ const DetailedVideoComponentWithLoading = withLoading(DetailedVideoComponent)
 export class ItemsListComponent extends Component {
 
   renderItemsList () {
-    const {items, handleOpenVideo, handleAddToPlaylist } = this.props;
+    const {items, handleOpenVideo, handleAddToPlaylist, accessToken } = this.props;
     return (
         <React.Fragment>
         <ul>
@@ -19,6 +19,7 @@ export class ItemsListComponent extends Component {
             <ItemsListVideoComponent
               key={video.videoId}
               {...video}
+              accessToken={accessToken}
               onClick = {() => handleOpenVideo(video)}
               addToPlaylistAction={(event) => {
                 event.stopPropagation();
@@ -43,7 +44,8 @@ export class ItemsListComponent extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    items: state.searchReducer.items
+    items: state.searchReducer.items,
+    accessToken: state.authReducer.accessToken
   }
 };
 

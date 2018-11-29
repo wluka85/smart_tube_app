@@ -1,6 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-const itemsListVideo = ({onClick, title, imageURL, videoId, addToPlaylistAction}) => {
+const itemsListVideo = ({onClick, title, imageURL, videoId, addToPlaylistAction, accessToken}) => {
   return (
     <div key={videoId}>
       <li onClick={onClick} className="list-group-item">
@@ -12,8 +13,7 @@ const itemsListVideo = ({onClick, title, imageURL, videoId, addToPlaylistAction}
             <div className="media-heading">{title}</div>
           </div>
           <div>
-            <button className='add-to-playlist-button'
-              onClick={addToPlaylistAction}>Add to playlist</button>
+            {createAddToPlaylistButton(addToPlaylistAction, accessToken)}
           </div>
         </div>
       </li>
@@ -21,14 +21,20 @@ const itemsListVideo = ({onClick, title, imageURL, videoId, addToPlaylistAction}
   );
 }
 
+const createAddToPlaylistButton = (addToPlaylistAction, accessToken) => {
+    if(accessToken.length > 0) {
+        return (
+            <button className='add-to-playlist-button'
+                  onClick={addToPlaylistAction}>Add to playlist</button>
+        )
+    }
+    return (
+        <button className='add-to-playlist-button' disabled
+              onClick={addToPlaylistAction}>Add to playlist</button>
+    )
+}
+
 export default itemsListVideo;
 
-// const mapStateToProps = state => {
-//   return {
-//     video: state.videoReducer.title,
-//     imageURL: state.videoReducer.imageURL,
-//     videoId: state.videoReducer.videoId
-//   }
-// };
 
 // export default itemsListVideo = connect(mapStateToProps)(itemsListVideo);
