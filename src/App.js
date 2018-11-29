@@ -29,7 +29,7 @@ export class App extends Component {
           <AuthorizationComponent/>
           <div id="video-list-container">
             <ItemsListComponent/>
-            {/* <DetailedVideoComponent/> */}
+            <DetailedVideoComponent/>
           </div>
         </div>
           {/*<CatalogContainer/>*/}

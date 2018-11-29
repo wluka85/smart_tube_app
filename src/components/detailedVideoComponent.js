@@ -68,18 +68,18 @@ class DetailedVideoComponent extends Component {
   }
 
   render() {
-    const { videoId, playlistElementId } = this.props;
-    if (!this.state.typeContentToPlayInPlayer) {
+    console.log('entered render video');
+    const { videoId, playlistElementId, showVideo } = this.props;
+    if (!videoId && showVideo) {
       return this.renderEmpty();
 
-    } else if (this.state.typeContentToPlayInPlayer === 'video'){
-      this.videoId = this.state.chosenVideo.videoId;
-      this.url = `https://www.youtube.com/embed/${videoId}?playlist=${videoId}`;
+    } else if (!playlistElementId && showVideo){
+      const API_KEY = 'AIzaSyBYOluBSrsLsqs0xGpRPueAUsOujDYdECc';
+      this.url = `https://www.youtube.com/embed/${videoId}`;
       return this.renderFull();
-    } else if (this.state.typeContentToPlayInPlayer === 'playlist') {
-      this.url = `http://www.youtube.com/embed?listType=playlist&list=${playlistElementId}`
-        return this.renderFull();
-    }
+    } else if (playlistElementId && showVideo)
+    this.url = `http://www.youtube.com/embed?listType=playlist&list=${playlistElementId}`
+    return this.renderFull();
   }
 }
 
@@ -88,7 +88,8 @@ const mapStateToProps = (state) => {
     videoId: state.videoReducer.videoId,
     title: state.videoReducer.title,
     description: state.videoReducer.description,
-    playlistElementId: state.videoReducer.playlistElementId
+    playlistElementId: state.videoReducer.playlistElementId,
+    showVideo: state.videoReducer.showVideo
   }
 };
 

@@ -7,7 +7,7 @@ import {openVideo} from '../actions/videoActions';
 export class ItemsListComponent extends Component {
 
   renderItemsList () {
-    const {items} = this.props;
+    const {items, handleOpenVideo } = this.props;
     return (
       <ul>
         {items.map(video => {
@@ -15,7 +15,7 @@ export class ItemsListComponent extends Component {
             <ItemsListVideo
               key={video.videoId}
               {...video}
-              onClick = {() => openVideo(video)}
+              onClick = {() => handleOpenVideo(video)}
             />
           );
         })}
@@ -40,7 +40,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    openVideo: (video) => dispatch(openVideo(video))
+    handleOpenVideo: (video) => {
+      console.log(video);
+      dispatch(openVideo(video))}
   }
 };
 

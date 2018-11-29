@@ -11,6 +11,10 @@ const itemsListVideo = ({onClick, title, imageURL, videoId}) => {
           <div className="media-body">
             <div className="media-heading">{title}</div>
           </div>
+          {/* <div>
+            <button className='add-to-playlist-button'
+              onClick={(event) => this.onUserAddToPlaylist(this.video.id.videoId, event)}>Add to playlist</button>
+          </div> */}
         </div>
       </li>
     </div>
