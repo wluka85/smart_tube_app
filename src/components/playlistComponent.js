@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {fetchUserCatalogs} from "../actions/catalogAction";
 import connect from "react-redux/es/connect/connect";
 import '../css/playlist.css';
 import {fetchDeletePlaylistItem} from "../actions/playlistAction";
@@ -63,7 +62,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleDeletePlaylistItem: (playlistElementId, playlist) => dispatch(fetchDeletePlaylistItem(playlistElementId, playlist)),
         handlePlayVideo: (video) => dispatch(openVideo(video)),
-        handlePlayPlaylist: (playlist) => dispatch(openPlaylist(playlist)),
+        handlePlayPlaylist: (playlist) => dispatch(openPlaylist(playlist))
 
     };
 }

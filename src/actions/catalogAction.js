@@ -1,5 +1,4 @@
-import {ThunkAction} from "redux-thunk";
-import Playlist, {getCatalogs} from "../model/playlist";
+import {getCatalogs} from "../model/playlist";
 import JSON from "circular-json";
 import {fetchCurrentPlaylist} from "./playlistAction";
 

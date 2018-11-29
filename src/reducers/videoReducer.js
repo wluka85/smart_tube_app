@@ -26,7 +26,8 @@ const videoReducer = (state = initialState, action) => {
         videoId: null
       };
 
-    case 'PLAYLIST_CHOSEN':
+
+    case 'PLAYLIST_PLAYBACK_CHOSEN':
       return {
         ...state,
         showVideo: true,

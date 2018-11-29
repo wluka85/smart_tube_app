@@ -36,14 +36,18 @@ class DetailedVideoComponent extends Component {
   }
 
   render() {
+      console.log('enter render');
     const { videoId, showVideo, playlistId } = this.props;
     
-    if (this.isVideoLoads(videoId, showVideo) || this.isNotVideoChosen(showVideo)) {
-        return this.renderEmpty();
-    } else if (playlistId !== '' && showVideo) {
+    if (playlistId !== '' && showVideo) {
+        console.log('enter playlist');
         this.url = `http://www.youtube.com/embed?listType=playlist&list=${playlistId}`;
         return this.renderFull();
-    }
+    } else if (this.isVideoLoads(videoId, showVideo) || this.isNotVideoChosen(showVideo)) {
+        console.log('enter wait');
+        return this.renderEmpty();
+    } 
+    console.log('enter video');
     this.url = `https://www.youtube.com/embed/${videoId}`;
     return this.renderFull();
   }

@@ -1,5 +1,3 @@
-import {ThunkAction} from "redux-thunk";
-import Playlist, {getCatalogs} from "../model/playlist";
 import JSON from "circular-json";
 import {getVideoList} from "../model/video";
 
@@ -14,7 +12,7 @@ const playlistVideosFetched = videoList => ({
 });
 
 const api = 'https://www.googleapis.com/youtube/v3/';
-const urlSearchCatalogs = 'playlists?part=snippet&mine=true';
+// const urlSearchCatalogs = 'playlists?part=snippet&mine=true';
 const urlCurrentPlaylist = 'playlistItems?part=snippet&maxResults=10&playlistId='
 
 export const fetchCurrentPlaylist = (playlist) => (dispatch, getState) => {

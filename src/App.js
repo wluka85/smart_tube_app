@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import SearchBarComponent from './components/searchBarComponent';
 import AuthorizationComponent from './components/authorizationComponent';
-import CatalogContainer from "./components/catalogComponent";
-import {Redirect, Switch} from "react-router";
-import {BrowserRouter, Route} from "react-router-dom";
-import AppLoggedIn from "./AppLoggedIn";
-import {fetchAddCatalog, fetchUserCatalogs} from "./actions/catalogAction";
+import {Redirect} from "react-router";
 import connect from "react-redux/es/connect/connect";
 import ItemsListComponent from './components/itemsListComponent';
 import DetailedVideoComponent from './components/detailedVideoComponent';

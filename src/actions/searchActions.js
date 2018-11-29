@@ -1,4 +1,3 @@
-import {ThunkAction} from "redux-thunk";
 import {getVideoList} from "../model/playlist";
 
 export const fetchResultsBegin = (searchCriteria) => ({
