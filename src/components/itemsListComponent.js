@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import ItemsListVideo from './itemsListVideoComponent';
+import ItemsListVideoComponent from './itemsListVideoComponent';
 import {openVideo} from '../actions/videoActions';
 
 
@@ -12,7 +12,7 @@ export class ItemsListComponent extends Component {
       <ul>
         {items.map(video => {
           return (
-            <ItemsListVideo
+            <ItemsListVideoComponent
               key={video.videoId}
               {...video}
               onClick = {() => handleOpenVideo(video)}
