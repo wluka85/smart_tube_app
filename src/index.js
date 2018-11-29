@@ -9,9 +9,14 @@ import thunk from "redux-thunk";
 import AppLoggedIn from "./AppLoggedIn";
 import {Switch} from "react-router";
 import './css/mainWindow.css';
+// import './css/headerStyles.css';
+// import './css/catalog.css';
+// import './css/catalogCreator.css';
+// import './css/playlist.css';
 
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
+
 
 ReactDOM.render(
   <Provider store={store}>

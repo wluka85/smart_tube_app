@@ -6,3 +6,9 @@ export const openVideo = (video) => ({
   description: video.imageURL,
   title: video.title,
 });
+
+export const closeVideo = () => {
+  return {
+    type: 'VIDEO_CLOSED'
+  }
+};
