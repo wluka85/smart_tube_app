@@ -20,7 +20,9 @@ export class ItemsListComponent extends Component {
               key={video.videoId}
               {...video}
               onClick = {() => handleOpenVideo(video)}
-              addToPlaylistAction={() => handleAddToPlaylist(video)}
+              addToPlaylistAction={(event) => {
+                event.stopPropagation();
+                handleAddToPlaylist(video)}}
             />
           );
         })}
