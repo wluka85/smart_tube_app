@@ -8,7 +8,7 @@ import {fetchUserCatalogs} from "../actions/catalogAction";
 class AuthorizationComponent extends Component {
 
     render() {
-        const { handleUserLogin, handleLoginFailure, handleUserLogout, message, accessToken, handleDisplayCatalogs } = this.props;
+        const { handleUserLogin, handleLoginFailure, handleUserLogout, message, accessToken } = this.props;
         let googleButton;
 
             if (accessToken.length === 0) {
@@ -46,13 +46,11 @@ const mapDispatchToProps = (dispatch) => {
 
     return {
         handleUserLogin: (response) => {
-            dispatch({type: 'USER_LOGGED_IN', message: '', accessToken: response.accessToken, redirect: '/log'})
-            dispatch(fetchUserCatalogs())
+            dispatch({type: 'USER_LOGGED_IN', message: '', accessToken: response.accessToken, redirect: '/log'});
+            dispatch(fetchUserCatalogs());
         },
         handleLoginFailure: () => dispatch({type: 'USER_NOT_LOGGED_IN', message: 'Ops! Wrong Login or Password'}),
         handleUserLogout: () => dispatch({type: 'USER_LOGGED_OUT', accessToken: '', message: '', redirect: '/'}),
-        // handleChangeRedirectState: () => dispatch({type: 'USER_REDIRECTED', redirect: '/'}),
-        handleDisplayCatalogs: () => dispatch(fetchUserCatalogs())
     };
 };
 
