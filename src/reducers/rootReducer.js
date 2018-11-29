@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   catalogReducer,
   searchReducer,
   videoReducer,
-    playlistReducer
+  playlistReducer
 
 });
 
