@@ -70,7 +70,7 @@ class DetailedVideoComponent extends Component {
   render() {
       console.log('entered render video');
       const {videoId, playlistElementId, showVideo} = this.props;
-      if (!videoId && showVideo) {
+      if (!videoId && showVideo || !showVideo) {
           return this.renderEmpty();
 
       } else if (!playlistElementId && showVideo) {
