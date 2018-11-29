@@ -1,5 +1,5 @@
 const initialState = {
-  videoId: '',
+  videoId: null,
   description: '',
   title: '',
   playlistElementId: null,
@@ -24,7 +24,7 @@ const videoReducer = (state = initialState, action) => {
         playlistElementId: null,
         title: '',
         description: '',
-        videoId: ''
+        videoId: null
       }
     default:
       return state;

@@ -22,7 +22,7 @@ export class App extends Component {
       }
     return (
       <div id='container'>
-          {redirectElement}
+        {redirectElement}
         <h2 >Hello!</h2>
         <div id='header-container'>
           <SearchBarComponent/>

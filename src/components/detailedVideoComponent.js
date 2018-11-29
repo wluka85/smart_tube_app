@@ -27,11 +27,19 @@ class DetailedVideoComponent extends Component {
     );
   }
 
+  isNotVideoChosen(showVideo) {
+    return !showVideo;
+  }
+
+  isVideoLoads(videoId, showVideo) {
+    return !videoId && showVideo;
+  }
+
   render() {
     console.log('entered render video');
     const { videoId, showVideo } = this.props;
     
-    if (!videoId && showVideo || !showVideo) {
+    if (this.isVideoLoads(videoId, showVideo) || this.isNotVideoChosen(showVideo)) {
       return this.renderEmpty();
     }
     this.url = `https://www.youtube.com/embed/${videoId}`;
