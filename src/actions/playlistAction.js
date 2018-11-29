@@ -39,3 +39,24 @@ export const fetchDeletePlaylistItem = (playlistElementId, playlist) => (dispatc
             dispatch(fetchCurrentPlaylist(playlist));
         })
 };
+
+export const fetchAddToPlaylist = (video) => (dispatch, getState) => {
+    const currentPlaylist = getState().playlistReducer.currentPlaylist;
+    fetch('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet', {
+        method: 'POST',
+        headers: new Headers({ 'Authorization': 'Bearer ' + encodeURIComponent(getState().authReducer.accessToken), 'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'}),
+        body: JSON.stringify({"snippet": {
+                "playlistId": currentPlaylist.id,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": video.videoId
+                }
+            }
+        })
+
+    })
+        .then((response) => {
+            dispatch(fetchCurrentPlaylist(currentPlaylist));
+        })
+};

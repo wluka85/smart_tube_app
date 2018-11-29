@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import ItemsListVideo from './itemsListVideoComponent';
 import {openVideo} from '../actions/videoActions';
+import {fetchAddToPlaylist} from "../actions/playlistAction";
 
 
 export class ItemsListComponent extends Component {
 
   renderItemsList () {
-    const {items, handleOpenVideo } = this.props;
+    const {items, handleOpenVideo, handleAddToPlaylist } = this.props;
     return (
       <ul>
         {items.map(video => {
@@ -16,6 +17,7 @@ export class ItemsListComponent extends Component {
               key={video.videoId}
               {...video}
               onClick = {() => handleOpenVideo(video)}
+              addToPlaylistAction={() => handleAddToPlaylist(video)}
             />
           );
         })}
@@ -42,7 +44,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleOpenVideo: (video) => {
       console.log(video);
-      dispatch(openVideo(video))}
+      dispatch(openVideo(video))},
+
+      handleAddToPlaylist: (video) => {
+          dispatch(fetchAddToPlaylist(video))}
   }
 };
 

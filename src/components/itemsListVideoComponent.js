@@ -1,6 +1,6 @@
 import React from 'react';
 
-const itemsListVideo = ({onClick, title, imageURL, videoId}) => {
+const itemsListVideo = ({onClick, title, imageURL, videoId, addToPlaylistAction}) => {
   return (
     <div key={videoId}>
       <li onClick={onClick} className="list-group-item">
@@ -11,10 +11,10 @@ const itemsListVideo = ({onClick, title, imageURL, videoId}) => {
           <div className="media-body">
             <div className="media-heading">{title}</div>
           </div>
-          {/* <div>
+          <div>
             <button className='add-to-playlist-button'
-              onClick={(event) => this.onUserAddToPlaylist(this.video.id.videoId, event)}>Add to playlist</button>
-          </div> */}
+              onClick={addToPlaylistAction}>Add to playlist</button>
+          </div>
         </div>
       </li>
     </div>
