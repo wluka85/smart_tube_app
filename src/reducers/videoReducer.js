@@ -2,7 +2,6 @@ const initialState = {
   videoId: '',
   description: '',
   title: '',
-  playlistElementId: null,
   showVideo: false
 };
 
@@ -14,14 +13,12 @@ const videoReducer = (state = initialState, action) => {
         videoId: action.videoId,
         description: action.description,
         title: action.title,
-        playlistElementId: action.playlistElementId,
         showVideo: true
       };
     case 'VIDEO_CLOSED':
       return {
         ...state,
         showVideo: false,
-        playlistElementId: null,
         title: '',
         description: '',
         videoId: ''

@@ -68,18 +68,19 @@ class DetailedVideoComponent extends Component {
   }
 
   render() {
-    console.log('entered render video');
-    const { videoId, playlistElementId, showVideo } = this.props;
-    if (!videoId && showVideo) {
-      return this.renderEmpty();
+      console.log('entered render video');
+      const {videoId, playlistElementId, showVideo} = this.props;
+      if (!videoId && showVideo) {
+          return this.renderEmpty();
 
-    } else if (!playlistElementId && showVideo){
-      const API_KEY = 'AIzaSyBYOluBSrsLsqs0xGpRPueAUsOujDYdECc';
-      this.url = `https://www.youtube.com/embed/${videoId}`;
+      } else if (!playlistElementId && showVideo) {
+          const API_KEY = 'AIzaSyBYOluBSrsLsqs0xGpRPueAUsOujDYdECc';
+          this.url = `https://www.youtube.com/embed/${videoId}`;
+
+      }
+
       return this.renderFull();
-    } else if (playlistElementId && showVideo)
-    this.url = `http://www.youtube.com/embed?listType=playlist&list=${playlistElementId}`
-    return this.renderFull();
+
   }
 }
 
@@ -88,7 +89,6 @@ const mapStateToProps = (state) => {
     videoId: state.videoReducer.videoId,
     title: state.videoReducer.title,
     description: state.videoReducer.description,
-    playlistElementId: state.videoReducer.playlistElementId,
     showVideo: state.videoReducer.showVideo
   }
 };

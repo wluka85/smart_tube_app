@@ -5,5 +5,4 @@ export const openVideo = (video) => ({
   videoId: video.videoId,
   description: video.imageURL,
   title: video.title,
-  playlistElementId: video.playlistElementId
 });
