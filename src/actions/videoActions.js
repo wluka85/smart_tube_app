@@ -1,6 +1,9 @@
+
 export const openVideo = (video) => ({
-  type: 'VIDEO_CLICKED',
+
+  type: 'VIDEO_ITEM_CLICKED',
   videoId: video.videoId,
-  imageURL: video.imageURL,
-  title: video.title
+  description: video.imageURL,
+  title: video.title,
+  playlistElementId: video.playlistElementId
 });
