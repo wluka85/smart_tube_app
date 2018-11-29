@@ -1,6 +1,7 @@
 import {ThunkAction} from "redux-thunk";
 import Playlist, {getCatalogs} from "../model/playlist";
 import JSON from "circular-json";
+import {fetchCurrentPlaylist} from "./playlistAction";
 
 const userCatalogsFetched = catalogs => ({
     type: "FETCH_CATALOGS_SUCCESS",
@@ -19,6 +20,11 @@ export const fetchUserCatalogs = () => (dispatch, getState) => {
         .then((response) => response.json())
         .then((data) => {
             let catalogs = getCatalogs(data.items);
+            const currentPlaylist = getState().playlistReducer.currentPlaylist;
+            if (currentPlaylist === '') {
+                dispatch(fetchCurrentPlaylist(catalogs[0]));
+            }
+
             dispatch(userCatalogsFetched(catalogs));
         });
 };
