@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import ItemsListVideoComponent from './itemsListVideoComponent';
 import {openVideo} from '../actions/videoActions';
 import {fetchAddToPlaylist} from "../actions/playlistAction";
+import DetailedVideoComponent from './detailedVideoComponent';
 
 
 export class ItemsListComponent extends Component {
@@ -10,7 +11,8 @@ export class ItemsListComponent extends Component {
   renderItemsList () {
     const {items, handleOpenVideo, handleAddToPlaylist } = this.props;
     return (
-      <ul>
+        <React.Fragment>
+        <ul>
         {items.map(video => {
           return (
             <ItemsListVideoComponent
@@ -22,6 +24,8 @@ export class ItemsListComponent extends Component {
           );
         })}
       </ul>
+      <DetailedVideoComponent/>
+      </React.Fragment>
     );
   }
 

@@ -25,7 +25,6 @@ export class App extends Component {
           <AuthorizationComponent/>
           <div id="video-list-container">
             <ItemsListComponent/>
-            <DetailedVideoComponent/>
           </div>
         </div>
           {/*<CatalogContainer/>*/}

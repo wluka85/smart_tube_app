@@ -33,7 +33,6 @@ export class AppLoggedIn extends Component {
           <CatalogCreatorComponent/>
           <div id="video-list-container">
               <ItemsListComponent/>
-              <DetailedVideoComponent/>
           </div>
       </div>
     );
