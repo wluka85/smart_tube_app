@@ -7,6 +7,7 @@ import {Redirect} from "react-router";
 import connect from "react-redux/es/connect/connect";
 import SearchBarComponent from "./components/searchBarComponent";
 import ItemsListComponent from "./components/itemsListComponent";
+import PlaylistComponent from "./components/playlistComponent";
 
 
 export class AppLoggedIn extends Component {
@@ -27,6 +28,7 @@ export class AppLoggedIn extends Component {
           <AuthorizationComponent/>
         </div>
           <CatalogContainer/>
+          <PlaylistComponent/>
           <CatalogCreatorComponent/>
           <div id="video-list-container">
               <ItemsListComponent/>
