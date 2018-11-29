@@ -3,7 +3,7 @@ import {fetchUserCatalogs} from "../actions/catalogAction";
 import connect from "react-redux/es/connect/connect";
 import '../css/playlist.css';
 import {fetchDeletePlaylistItem} from "../actions/playlistAction";
-import {openVideo} from "../actions/videoActions";
+import {openPlaylist, openVideo} from "../actions/videoActions";
 
 class PlaylistComponent extends Component {
 
@@ -39,7 +39,7 @@ class PlaylistComponent extends Component {
             <React.Fragment>
                 <div className="playlist-option">
                     <div className="playlist-name">{currentPlaylist.title}</div>
-                    <i className="fas fa-play" id="play-button" onClick={handlePlayPlaylist}/>
+                    <i className="fas fa-play" id="play-button" onClick={() => handlePlayPlaylist(currentPlaylist)}/>
                 </div>
             <div id="playlist-scroll">
                 <div id="playlist-container">
@@ -63,7 +63,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleDeletePlaylistItem: (playlistElementId, playlist) => dispatch(fetchDeletePlaylistItem(playlistElementId, playlist)),
         handlePlayVideo: (video) => dispatch(openVideo(video)),
-        handlePlayPlaylist: () => dispatch(fetchUserCatalogs()),
+        handlePlayPlaylist: (playlist) => dispatch(openPlaylist(playlist)),
 
     };
 }

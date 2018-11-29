@@ -28,10 +28,13 @@ class DetailedVideoComponent extends Component {
   }
 
   render() {
-    const { videoId, showVideo } = this.props;
+    const { videoId, showVideo, playlistId } = this.props;
     
     if (!videoId && showVideo || !showVideo) {
       return this.renderEmpty();
+    } else if (playlistId !== '' && showVideo) {
+      this.url = `http://www.youtube.com/embed?listType=playlist&list=${playlistId}`;
+      return this.renderFull();
     }
     this.url = `https://www.youtube.com/embed/${videoId}`;
     return this.renderFull();
@@ -44,7 +47,8 @@ const mapStateToProps = (state) => {
     title: state.videoReducer.title,
     description: state.videoReducer.description,
     showVideo: state.videoReducer.showVideo,
-    isLoggedIn: state.authReducer.accessToken
+    isLoggedIn: state.authReducer.accessToken,
+      playlistId: state.videoReducer.playlistId
   }
 };
 

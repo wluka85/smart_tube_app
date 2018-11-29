@@ -2,7 +2,8 @@ const initialState = {
   videoId: '',
   description: '',
   title: '',
-  showVideo: false
+  showVideo: false,
+    playlistId: ''
 };
 
 const videoReducer = (state = initialState, action) => {
@@ -21,8 +22,19 @@ const videoReducer = (state = initialState, action) => {
         showVideo: false,
         title: '',
         description: '',
-        videoId: ''
+        videoId: '',
+          playlistId: ''
       }
+
+      case 'PLAYLIST_CHOSEN':
+          return {
+              ...state,
+              showVideo: true,
+              description: action.description,
+              title: action.title,
+              playlistId: action.playlistId
+          }
+
     default:
       return state;
   }

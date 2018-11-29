@@ -12,3 +12,12 @@ export const closeVideo = () => {
     type: 'VIDEO_CLOSED'
   }
 };
+
+export const openPlaylist = (playlist) => {
+    return {
+        type: 'PLAYLIST_CHOSEN',
+        playlistId: playlist.id,
+        description: playlist.description,
+        title: playlist.title
+    }
+};
