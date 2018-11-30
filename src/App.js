@@ -3,7 +3,7 @@ import {Redirect} from "react-router";
 import connect from "react-redux/es/connect/connect";
 import ItemsListComponent from './components/itemsListComponent';
 import HeaderContainer from './components/headerContainer';
-// import './css/headerStyles.css';
+import './css/headerStyles.css';
 import './css/mainWindow.css';
 
 export class App extends Component {
@@ -17,13 +17,14 @@ export class App extends Component {
     return (
       <div id='container'>
         {redirectElement}
-        <h2 >Hello!</h2>
-        <div id='header-container'>
+        {/*<div id='header-container'>*/}
             <HeaderContainer/>
-          <div id="video-list-container">
-            <ItemsListComponent/>
-          </div>
-        </div>
+            <div id="main-container">
+                <div id="video-list-container">
+                    <ItemsListComponent/>
+                </div>
+            </div>
+        {/*</div>*/}
       </div>
     );
   }

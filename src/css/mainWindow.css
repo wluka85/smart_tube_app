@@ -1,13 +1,47 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+
+
 #container {
-  display: flex;
-  flex-direction: column;
+  /*display: flex;*/
+  /*flex-direction: column;*/
 }
 
 #main-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 75px;
   margin-left: 240px;
   margin-right: 250px;
 }
@@ -17,25 +51,49 @@ ul {
   padding: 0px;
 }
 .list-group-item {
-  border: 1px solid rgb(179, 179, 179);
+  border: 1px solid rgb(202,69,59);
   margin: 2px;
   border-radius: 4px;
   padding: 7px;
-  display: flex;
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  /*justify-content: stretch;*/
+  /*flex-grow: revert;*/
+
   cursor: pointer;
 }
 .video-list {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.add-to-playlist-button {
+  padding: 10px;
+  width: 140px;
+  /*width: 100%;*/
+  /*justify-self: center;*/
+  border-radius: 2px;
+  border: 1px solid rgb(202,69,59);
+  background-color: #ca453b;
+  color: white;
 }
 
 #video-list-container {
-  width: 100%;
+  /*width: 100%;*/
+
 }
 
 .media-body {
   padding: 0 4px;
+  display: flex;
+  align-items: center;
+  font-family: 'Slabo 27px', serif;
+}
+
+.media-heading {
+  text-align: center;
+  /*color: #ca453b;*/
 }
 
 .modal {
@@ -80,4 +138,20 @@ ul {
   display: flex;
   flex-direction: column;
   justify-items: center;
+}
+
+.details {
+  padding-top: 10px;
+  font-family: 'Slabo 27px', serif;
+  text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+  #main-container {
+    margin-right: 5px;
+  }
+
+  .add-to-playlist-button {
+    width: 70px;
+  }
 }

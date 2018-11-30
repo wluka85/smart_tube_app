@@ -14,9 +14,9 @@ export class SearchBarComponent extends Component {
             e.preventDefault();
             onSubmit(e);
             e.target.querySelector('input').value = '';
-          }}>
-          <input type="text" placeholder='Search' />
-          <input type="submit" value="Search"/>
+          }} className='form-container'>
+          <input className='search-input' type="text" placeholder='Search' />
+          <input className='button-submit' type="submit" value="Search"/>
         </form>
                 
       </div>

@@ -4,7 +4,7 @@ const itemsListVideo = ({onClick, title, imageURL, videoId, addToPlaylistAction}
   return (
     <div key={videoId}>
       <li onClick={onClick} className="list-group-item">
-        <div className="video-list media">
+        <div className="video-list">
           <div className="media-left">
             <img src={imageURL} alt={title} className="media-object"/>
           </div>

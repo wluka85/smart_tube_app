@@ -6,6 +6,8 @@ import connect from "react-redux/es/connect/connect";
 import ItemsListComponent from "./components/itemsListComponent";
 import PlaylistComponent from "./components/playlistComponent";
 import HeaderContainer from './components/headerContainer';
+import './css/headerStyles.css';
+import './css/mainWindow.css';
 
 
 export class AppLoggedIn extends Component {
@@ -20,15 +22,16 @@ export class AppLoggedIn extends Component {
     return (
       <div id='container'>
           {redirectElement}
-        <h2 >Hello!</h2>
-        <div id='header-container'>
+        {/*<div id='header-container'>*/}
           <HeaderContainer/>
-        </div>
-          <CatalogContainer/>
-          <PlaylistComponent/>
-          <CatalogCreatorComponent/>
-          <div id="video-list-container">
-              <ItemsListComponent/>
+        {/*</div>*/}
+          <div id="main-container">
+              <div id="video-list-container">
+                  <ItemsListComponent/>
+              </div>
+              <CatalogContainer/>
+              <PlaylistComponent/>
+              <CatalogCreatorComponent/>
           </div>
       </div>
     );
