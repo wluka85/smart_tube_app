@@ -17,10 +17,10 @@ class CatalogComponent extends Component {
 
         const catalogComponent = (playlist, i, id, title) => {
             return (
-                <div className="catalog-component" key={i}>
-                    <div className="catalog-name" onClick={() => {handleDisplayPlaylist(playlist)}}>{ title }</div>
-                    <i className="fas fa-trash-alt" onClick={() => {handleDeleteCatalog(id)}}/>
-                </div>
+                    <div className="catalog-component" key={i}>
+                        <div className="catalog-name" onClick={() => {handleDisplayPlaylist(playlist)}}>{ title }</div>
+                        <i className="fas fa-trash-alt" onClick={() => {handleDeleteCatalog(id)}}/>
+                    </div>
             )
         };
 
@@ -33,9 +33,11 @@ class CatalogComponent extends Component {
         );
 
         return (
-            <div id="catalog-container">
-                {catalogComponentList}
-                {addNewButtonComponent}
+            <div className='catalog-scroll'>
+                <div id="catalog-container">
+                    {catalogComponentList}
+                    {addNewButtonComponent}
+                </div>
             </div>
         )
     }
