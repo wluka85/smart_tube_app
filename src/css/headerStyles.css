@@ -36,11 +36,20 @@
   padding: 10px;
   min-width: 300px;
   /*width: 100%;*/
-  justify-self: center;
-  border-radius: 2px;
-  border: 1px solid rgb(179, 179, 179);
+}
+.search-bar {
+    display: flex;
+    flex-direction: row;
 }
 
+.search-field {
+  padding: 10px;
+  min-width: 350px;
+  width: 80%;
+  /*justify-self: center;*/
+  /*border-radius: 2px 0 0 2px;*/
+  /*border: 1px solid rgb(179, 179, 179);*/
+}
 
 .button-submit {
   padding: 10px;

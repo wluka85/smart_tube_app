@@ -8,8 +8,8 @@ export class SearchBarComponent extends Component {
     const {onSubmit, searchCriteria} = this.props;
     console.log('search ', searchCriteria);
     return (
-      <div className='search-bar'>
-        <form 
+      <div >
+        <form className='search-bar'
           onSubmit={e => {
             e.preventDefault();
             onSubmit(e);
@@ -17,6 +17,7 @@ export class SearchBarComponent extends Component {
           }} className='form-container'>
           <input className='search-input' type="text" placeholder='Search' />
           <input className='button-submit' type="submit" value="Search"/>
+
         </form>
                 
       </div>
