@@ -13,7 +13,7 @@ const playlistVideosFetched = videoList => ({
 
 const api = 'https://www.googleapis.com/youtube/v3/';
 // const urlSearchCatalogs = 'playlists?part=snippet&mine=true';
-const urlCurrentPlaylist = 'playlistItems?part=snippet&maxResults=10&playlistId='
+const urlCurrentPlaylist = 'playlistItems?part=snippet&maxResults=50&playlistId='
 
 export const fetchCurrentPlaylist = (playlist) => (dispatch, getState) => {
 
