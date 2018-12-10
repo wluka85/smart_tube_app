@@ -2,6 +2,7 @@
   "name": "smart_tube_app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://senseinvader.github.io/smart_tube_app/",
   "dependencies": {
     "circular-json": "^0.5.9",
     "gapi-client": "0.0.3",
@@ -16,7 +17,6 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },
-  "homepage": "https://senseinvader.github.io/smart_tube_app/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
