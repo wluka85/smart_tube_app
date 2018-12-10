@@ -24,6 +24,11 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -41,5 +46,11 @@
   "bugs": {
     "url": "https://github.com/Senseinvader/smart_tube_app/issues"
   },
-  "homepage": "https://github.com/Senseinvader/smart_tube_app#readme"
+  "homepage": "https://github.com/Senseinvader/smart_tube_app#readme",
+  "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.5",
+    "redux-mock-store": "^1.5.3"
+  }
 }

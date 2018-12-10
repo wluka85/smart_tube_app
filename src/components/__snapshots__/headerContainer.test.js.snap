@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header container matches the snapshot 1`] = `
+<div
+  id="header-container"
+>
+  <div
+    className="search-bar-container"
+  >
+    <Connect(SearchBarComponent) />
+  </div>
+  <div
+    className="button-container"
+  >
+    <Connect(AuthorizationComponent) />
+  </div>
+</div>
+`;
