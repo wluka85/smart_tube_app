@@ -19,7 +19,7 @@ export const fetchSearchResults = (searchCriteria) => (dispatch, getState) => {
 
   const API_KEY = 'AIzaSyBYOluBSrsLsqs0xGpRPueAUsOujDYdECc';
   const api = 'https://www.googleapis.com/youtube/v3/';
-  const urlSearchResults = `search?part=snippet&q=${searchCriteria}&maxResults=10&type=video&key=${API_KEY}`;
+  const urlSearchResults = `search?part=snippet&q=${searchCriteria}&maxResults=30&type=video&key=${API_KEY}&safeSearch=strict`;
   dispatch(fetchResultsBegin(searchCriteria));
 
   fetch(api + urlSearchResults,  {
