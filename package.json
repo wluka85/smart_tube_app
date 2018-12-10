@@ -5,6 +5,7 @@
   "dependencies": {
     "circular-json": "^0.5.9",
     "gapi-client": "0.0.3",
+    "gh-pages": "^2.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-google-login": "^3.2.1",
@@ -15,11 +16,14 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },
+  "homepage": "https://senseinvader.github.io/smart_tube_app/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +44,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Senseinvader/smart_tube_app/issues"
-  },
-  "homepage": "https://github.com/Senseinvader/smart_tube_app#readme"
+  }
 }
