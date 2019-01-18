@@ -15,14 +15,18 @@ class PlaylistComponent extends Component {
         const playlistItemsComponent = (video, i) =>  {
             const {title, imageURL, playlistElementId} = video;
             return (
-                <div className="playlist-element-component" key={i}>
-                    <img src={imageURL} alt={title} className="video-picture"/>
-                    <div className="video-name"> {title}</div>
-                    <div className="video-buttons">
-                        <i className="fas fa-trash-alt" onClick={() => {handleDeletePlaylistItem(playlistElementId, currentPlaylist)}}/>
-                        <i className="fas fa-play" id="play-button" onClick={() => {handlePlayVideo(video)}}/>
+                <li className="card playlist-card" key={i}>
+                    <img src={imageURL} alt={title} className="card-img-top img-fluid"/>
+                    <div className="card-body playlist-item">
+                        <div className="card-title"> {title}</div>
+                        <div className="btn btn-outline-primary btn-sm btn-sets" onClick={() => {handleDeletePlaylistItem(playlistElementId, currentPlaylist)}}>
+                            <i className="fas fa-trash-alt"/>
+                        </div>
+                        <div className="btn btn-outline-primary btn-sm btn-sets" onClick={() => {handlePlayVideo(video)}}>
+                            <i className="fas fa-play" id="play-button"/>
+                        </div>
                     </div>
-                </div>
+                </li>
             )
         };
 
@@ -35,17 +39,19 @@ class PlaylistComponent extends Component {
             );
 
         return (
-            <React.Fragment>
+            <div className="col-md-3 col-lg-2 sidebar right-sidebar">
                 <div className="playlist-option">
-                    <div className="playlist-name">{currentPlaylist.title}</div>
-                    <i className="fas fa-play" id="play-button" onClick={() => handlePlayPlaylist(currentPlaylist)}/>
+                    <div className="btn btn-primary btn-sm catalog-name btn-sets">{currentPlaylist.title}</div>
+                    <div className="btn btn-outline-primary btn-sm btn-sets" onClick={() => handlePlayPlaylist(currentPlaylist)}>
+                        <i className="fas fa-play"/>
+                    </div>
                 </div>
-            <div id="playlist-scroll">
-                <div id="playlist-container">
-                    {playlistItemList}
+                <div className="playlist-scroll">
+                    <ul className="nav nav-sidebar">
+                        {playlistItemList}
+                    </ul>
                 </div>
             </div>
-            </React.Fragment>
         )
     }
 }

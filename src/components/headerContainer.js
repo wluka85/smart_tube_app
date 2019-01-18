@@ -8,9 +8,9 @@ export class HeaderContainer extends Component {
   render() {
     return (
       <div id='header-container'>
-        <div className='search-bar-container'>
+        {/*<div className='search-bar-container'>*/}
           <SearchBarComponent />
-        </div>
+        {/*</div>*/}
         <div className='button-container'>
           <AuthorizationComponent/>
         </div>

@@ -15,7 +15,7 @@ export class LogoutButton extends Component {
   render() {
     return (
       <React.Fragment>
-        <GoogleLogout
+        <GoogleLogout className="btn btn-outline-primary"
           buttonText="Logout"
           onLogoutSuccess={this.clickHandler}>
         </GoogleLogout>

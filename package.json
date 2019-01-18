@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://senseinvader.github.io/smart_tube_app",
   "dependencies": {
+    "bootstrap": "^4.2.1",
     "circular-json": "^0.5.9",
     "gapi-client": "0.0.3",
     "gh-pages": "^2.0.1",

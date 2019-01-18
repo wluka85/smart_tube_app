@@ -12,7 +12,7 @@ class AuthorizationComponent extends Component {
         let googleButton;
 
             if (accessToken.length === 0) {
-            googleButton = <GoogleLogin id='sign-in-button'
+            googleButton = <GoogleLogin id='sign-in-button' className="btn btn-outline-primary"
                                         clientId="549983921860-7ctt7f0r7777vuir9e1pe3bj7p1siea6.apps.googleusercontent.com"
                                         buttonText="Sign In"
                                         scope="https://www.googleapis.com/auth/youtube"

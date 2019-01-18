@@ -11,33 +11,36 @@ export class ItemsListComponent extends Component {
 
   renderItemsList () {
     const {items, handleOpenVideo, handleAddToPlaylist, accessToken } = this.props;
+    let componentClassName;
+    accessToken.length > 0 ? componentClassName = "col-md-6 offset-md-3 offset-lg-2" : componentClassName = "col-md-6 offset-md-3";
+
     return (
-        <React.Fragment>
-        <ul>
-        {items.map(video => {
-          return (
-            <ItemsListVideoComponent
-              key={video.videoId}
-              {...video}
-              accessToken={accessToken}
-              onClick = {() => handleOpenVideo(video)}
-              addToPlaylistAction={(event) => {
-                event.stopPropagation();
-                handleAddToPlaylist(video)}}
-            />
-          );
-        })}
-      </ul>
+        <div className={componentClassName}>
+          <ul>
+          {items.map(video => {
+            return (
+              <ItemsListVideoComponent
+                key={video.videoId}
+                {...video}
+                accessToken={accessToken}
+                onClick = {() => handleOpenVideo(video)}
+                addToPlaylistAction={(event) => {
+                  event.stopPropagation();
+                  handleAddToPlaylist(video)}}
+              />
+            );
+          })}
+        </ul>
       <DetailedVideoComponentWithLoading/>
-      </React.Fragment>
+      </div>
     );
   }
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         {this.renderItemsList()}
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -1,157 +1,63 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+.sidebar {
+    position: fixed;
+    top: 80px;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
+.right-sidebar {
+    bottom: 0;
+    right: 0;
+}
+
+.left-sidebar {
+    bottom: 0;
+    left: 0;
+}
+
+.playlist-scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
-
-#container {
-  /*display: flex;*/
-  /*flex-direction: column;*/
+.catalog-item {
+    display: flex;
+    flex-direction: row;
 }
 
-#main-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 75px;
-  margin-left: 240px;
-  margin-right: 250px;
+.playlist-option {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
 }
 
-ul {
-  list-style: none;
-  padding: 0px;
-}
-.list-group-item {
-  border: 1px solid rgb(202,69,59);
-  margin: 2px;
-  border-radius: 4px;
-  padding: 7px;
-  /*display: flex;*/
-  /*flex-direction: row;*/
-  /*justify-content: stretch;*/
-  /*flex-grow: revert;*/
-
-  cursor: pointer;
-}
-.video-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.nav-sidebar {
+    display: flex;
+    flex-direction: column;
 }
 
-.add-to-playlist-button {
-  padding: 10px;
-  width: 140px;
-  /*width: 100%;*/
-  /*justify-self: center;*/
-  border-radius: 2px;
-  border: 1px solid rgb(202,69,59);
-  background-color: #ca453b;
-  color: white;
+.catalog-name {
+    width: 100%;
 }
 
-#video-list-container {
-  /*width: 100%;*/
-
+.add-new-btn {
+    width: 100%;
 }
 
-.media-body {
-  padding: 0 4px;
-  display: flex;
-  align-items: center;
-  font-family: 'Slabo 27px', serif;
+.btn-fluid {
+    width: 100%;
 }
 
-.media-heading {
-  text-align: center;
-  /*color: #ca453b;*/
+.playlist-item {
+    text-align: center;
 }
 
-.modal {
-  position: fixed; /* Stay in place */
-  z-index: 5; /* Sit on top */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /*padding-top: 200px; !* Location of the box *!*/
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+.btn-sets {
+    margin: 2px;
 }
 
-.video-container {
-  position: fixed;
-  /*left: 50%;*/
-  height: 400px;
-  width: 600px;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* box-shadow: 3px 3px 5px 6px rgb(151, 149, 149); */
-  padding: 20px;
-  /*margin-left: -250px;*/
-  /*margin-top: -200px;*/
-  background-color: white;
-}
-
-.video-window {
-  height: 300px;
-}
-
-.embed {
-  width: 95%;
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-}
-
-.details {
-  padding-top: 10px;
-  font-family: 'Slabo 27px', serif;
-  text-align: center;
-}
-
-@media only screen and (max-width: 900px) {
-  #main-container {
-    margin-right: 5px;
-  }
-
-  .add-to-playlist-button {
-    width: 70px;
-  }
+.playlist-card {
+    margin-bottom: 10px;
 }

@@ -23,17 +23,13 @@ export class AppLoggedIn extends Component {
     return (
       <div id='container'>
           {redirectElement}
-        {/*<div id='header-container'>*/}
           <HeaderContainer/>
-        {/*</div>*/}
-          <div id="main-container">
-              <div id="video-list-container">
-                  <ItemsListComponent/>
-              </div>
+          <div className="row">
               <CatalogContainer/>
+              <ItemsListComponent/>
               <PlaylistComponent/>
-              <CatalogCreatorComponent/>
           </div>
+          <CatalogCreatorComponent/>
       </div>
     );
   }

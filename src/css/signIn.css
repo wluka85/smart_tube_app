@@ -1,44 +1,44 @@
-.sign-in-window {
-    position: fixed;
-    background-image: url('../img/mozaika.jpg');
-    background-repeat: repeat;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
+/*.sign-in-window {*/
+    /*position: fixed;*/
+    /*background-image: url('../img/mozaika.jpg');*/
+    /*background-repeat: repeat;*/
+    /*background-attachment: fixed;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
 
-#sign-in-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    width: 400px;
-    height: 300px;
-    /*opacity: 0.8;*/
-    box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.75);
-}
-
-
-.sign-in-button{
-    background-color: darkred;
-    color: white;
-    border: 0px;
-}
-
-#sign-in-button:hover {
-    opacity: 0.7;
-}
+/*#sign-in-container {*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    /*background-color: white;*/
+    /*width: 400px;*/
+    /*height: 300px;*/
+    /*!*opacity: 0.8;*!*/
+    /*box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.75);*/
+/*}*/
 
 
+/*.sign-in-button{*/
+    /*background-color: darkred;*/
+    /*color: white;*/
+    /*border: 0px;*/
+/*}*/
+
+/*#sign-in-button:hover {*/
+    /*opacity: 0.7;*/
+/*}*/
 
 
-#sign-in-message {
-    font-size: 20px;
-    color: darkred;
-    margin-top: 20px;
-}
+
+
+/*#sign-in-message {*/
+    /*font-size: 20px;*/
+    /*color: darkred;*/
+    /*margin-top: 20px;*/
+/*}*/
 

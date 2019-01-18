@@ -11,16 +11,20 @@ class CatalogComponent extends Component {
         let addNewButtonComponent;
         if (accessToken.length > 0) {
             addNewButtonComponent = (
-                <div id="add-new" onClick={handleActionAddNew}>Add new</div>
+                <li className="catalog-item">
+                    <div className="btn btn-outline-primary btn-sm add-new-btn btn-sets" onClick={handleActionAddNew}>Add new</div>
+                </li>
             );
         }
 
         const catalogComponent = (playlist, i, id, title) => {
             return (
-                    <div className="catalog-component" key={i}>
-                        <div className="catalog-name" onClick={() => {handleDisplayPlaylist(playlist)}}>{ title }</div>
-                        <i className="fas fa-trash-alt" onClick={() => {handleDeleteCatalog(id)}}/>
-                    </div>
+                    <li className="catalog-item" key={i}>
+                        <div className="btn btn-outline-primary btn-sm catalog-name btn-sets" onClick={() => {handleDisplayPlaylist(playlist)}}>{ title }</div>
+                        <div className="btn btn-outline-primary btn-sm btn-sets"  onClick={() => {handleDeleteCatalog(id)}}>
+                            <i className="fas fa-trash-alt"/>
+                        </div>
+                    </li>
             )
         };
 
@@ -33,11 +37,11 @@ class CatalogComponent extends Component {
         );
 
         return (
-            <div className='catalog-scroll'>
-                <div id="catalog-container">
+            <div className="col-md-3 col-lg-2 sidebar left-sidebar">
+                <ul className="nav nav-sidebar">
                     {catalogComponentList}
                     {addNewButtonComponent}
-                </div>
+                </ul>
             </div>
         )
     }

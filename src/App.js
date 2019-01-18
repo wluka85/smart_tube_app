@@ -17,14 +17,10 @@ export class App extends Component {
     return (
       <div id='container'>
         {redirectElement}
-        {/*<div id='header-container'>*/}
             <HeaderContainer/>
-            <div id="main-container">
-                <div id="video-list-container">
-                    <ItemsListComponent/>
-                </div>
+            <div id="row">
+                <ItemsListComponent/>
             </div>
-        {/*</div>*/}
       </div>
     );
   }
