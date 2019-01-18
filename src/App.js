@@ -3,8 +3,6 @@ import {Redirect} from "react-router";
 import connect from "react-redux/es/connect/connect";
 import ItemsListComponent from './components/itemsListComponent';
 import HeaderContainer from './components/headerContainer';
-import './css/headerStyles.css';
-import './css/mainWindow.css';
 
 export class App extends Component {
   render() {

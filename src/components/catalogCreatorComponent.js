@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import '../css/catalogCreator.css';
 import connect from "react-redux/es/connect/connect";
 import {fetchAddCatalog} from "../actions/catalogAction";
 

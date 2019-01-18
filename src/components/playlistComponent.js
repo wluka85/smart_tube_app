@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
-import '../css/playlist.css';
 import {fetchDeletePlaylistItem} from "../actions/playlistAction";
 import {openPlaylist, openVideo} from "../actions/videoActions";
 

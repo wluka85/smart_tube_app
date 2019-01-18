@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import SearchBarComponent from './searchBarComponent';
 import AuthorizationComponent from './authorizationComponent';
-import '../css/mainWindow.css';
 
 export class HeaderContainer extends Component {
 
   render() {
     return (
-      <div id='header-container'>
-        {/*<div className='search-bar-container'>*/}
+      <nav className="navbar navbar-light bg-light fixed-top">
+          <div className="text-primary" style={{fontFamily: 'Pacifico', fontWeight: 'cursive', fontSize: '25px'}}>SmartTube</div>
           <SearchBarComponent />
-        {/*</div>*/}
-        <div className='button-container'>
           <AuthorizationComponent/>
-        </div>
-      </div>
+      </nav>
     );
   }
 }

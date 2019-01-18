@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
 import {deleteCatalog, fetchUserCatalogs} from "../actions/catalogAction";
-import '../css/catalog.css';
 import {fetchCurrentPlaylist} from "../actions/playlistAction";
 
 class CatalogComponent extends Component {

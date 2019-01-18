@@ -1,6 +1,5 @@
 import GoogleLogin from "react-google-login";
-import React, { Component } from 'react'
-// import '../../css/signIn.css';
+import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import LogoutButton from "../view/components/logoutButton";
 import {fetchUserCatalogs} from "../actions/catalogAction";
@@ -12,7 +11,7 @@ class AuthorizationComponent extends Component {
         let googleButton;
 
             if (accessToken.length === 0) {
-            googleButton = <GoogleLogin id='sign-in-button' className="btn btn-outline-primary"
+            googleButton = <GoogleLogin className="btn btn-outline-primary"
                                         clientId="549983921860-7ctt7f0r7777vuir9e1pe3bj7p1siea6.apps.googleusercontent.com"
                                         buttonText="Sign In"
                                         scope="https://www.googleapis.com/auth/youtube"
@@ -25,12 +24,10 @@ class AuthorizationComponent extends Component {
         }
 
         return(
-            <div className="sign-in-window">
-                <div id="sign-in-container">
-                    {googleButton}
+                <React.Fragment>
                     <div id='sign-in-message'>{ message }</div>
-                </div>
-            </div>
+                    {googleButton}
+                </React.Fragment>
         )
     }
 }

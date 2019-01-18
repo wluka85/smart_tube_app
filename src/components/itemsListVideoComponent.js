@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 
 const itemsListVideo = ({onClick, title, imageURL, videoId, addToPlaylistAction, accessToken}) => {
   return (
