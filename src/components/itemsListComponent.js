@@ -16,7 +16,7 @@ export class ItemsListComponent extends Component {
 
     return (
         <div className={componentClassName}>
-          <ul>
+          <div className="item-list">
           {items.map(video => {
             return (
               <ItemsListVideoComponent
@@ -30,8 +30,9 @@ export class ItemsListComponent extends Component {
               />
             );
           })}
-        </ul>
-      <DetailedVideoComponentWithLoading/>
+        </div>
+          {/*<DetailedVideoComponent/>*/}
+      {/*<DetailedVideoComponentWithLoading/>*/}
       </div>
     );
   }

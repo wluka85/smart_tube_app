@@ -2,33 +2,27 @@ import React from 'react';
 
 const itemsListVideo = ({onClick, title, imageURL, videoId, addToPlaylistAction, accessToken}) => {
   return (
-    <div key={videoId}>
-      <li onClick={onClick} className="list-group-item">
-        <div className="video-list">
-          <div className="media-left">
-            <img src={imageURL} alt={title} className="media-object"/>
-          </div>
+      <div key={videoId} className="card d-flex flex-row item-result" onClick={onClick}>
+            <img src={imageURL} alt={title} className="card-img-top img-responsive" style={{width: 'auto', height: '140px'}}/>
           <div className="media-body">
-            <div className="media-heading">{title}</div>
+            <div className="card-title text-center">{title}</div>
           </div>
           <div>
             {createAddToPlaylistButton(addToPlaylistAction, accessToken)}
           </div>
-        </div>
-      </li>
-    </div>
+      </div>
   );
 }
 
 const createAddToPlaylistButton = (addToPlaylistAction, accessToken) => {
     if(accessToken.length > 0) {
         return (
-            <button className='add-to-playlist-button'
+            <button className='btn btn-outline-primary btn-sm btn-sets'
                   onClick={addToPlaylistAction}>Add to playlist</button>
         )
     }
     return (
-        <button className='add-to-playlist-button' disabled
+        <button className='btn btn-outline-primary btn-sm btn-sets' disabled
               onClick={addToPlaylistAction}>Add to playlist</button>
     )
 }
