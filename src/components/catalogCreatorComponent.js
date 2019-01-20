@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
 import {fetchAddCatalog} from "../actions/catalogAction";
+import Modal from "react-bootstrap/es/Modal";
+import Button from "react-bootstrap/es/Button";
 
 class CatalogCreatorComponent extends Component {
 
@@ -9,21 +11,32 @@ class CatalogCreatorComponent extends Component {
 
         const renderFull = () => {
             return (
-                <div className="modal-window" onClick={(event) => {handleClickUnselected(event)}}>
+                <Modal show={showAddNewCatalogWindow} animation={false} onHide={handleClickUnselected}>
                     <form onSubmit={(event) => {
                             event.preventDefault();
                             handleAddCatalog(event);
                         }
                     }>
-                        <div className="modal-catalog-container">
+                        <Modal.Header>
+                            <Modal.Title className="modal-catalog-container">
+                                Catalog creator
+                            </Modal.Title>
+                        </Modal.Header>
+
+                        <Modal.Body>
                             <div className="title-label">Title:</div>
                             <input type="text" id="title-input"/>
-                            <div className="description-label">Description:</div>
+
+                            <div className="description-label"><br/>Description:</div>
                             <input type="text" id="description-input"/>
-                            <input type="submit" className="button-add" value="Add"/>
-                        </div>
+                        </Modal.Body>
+
+                        <Modal.Footer>
+                            <Button type="submit" bsStyle="primary">Add</Button>
+                            <Button bsStyle="outline-primary" onClick={handleClickUnselected}>Close</Button>
+                        </Modal.Footer>
                     </form>
-                </div>
+                </Modal>
             )
         };
 
@@ -56,11 +69,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(fetchAddCatalog(title, description));
         },
 
-        handleClickUnselected: (event) => {
-            if (event.target.className === 'modal-window') {
-                dispatch({type: 'SHOW_ADD_NEW_CATALOG', showAddNewCatalogWindow: false})
-            }
-        }
+        handleClickUnselected: () => dispatch({type: 'SHOW_ADD_NEW_CATALOG', showAddNewCatalogWindow: false})
     };
 };
 
