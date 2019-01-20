@@ -1,20 +1,17 @@
 import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
-import {deleteCatalog, fetchUserCatalogs} from "../actions/catalogAction";
+import {deleteCatalog} from "../actions/catalogAction";
 import {fetchCurrentPlaylist} from "../actions/playlistAction";
 
 class CatalogComponent extends Component {
 
     render() {
-        const {accessToken, catalogList, handleActionAddNew, handleDeleteCatalog, handleDisplayPlaylist} = this.props;
-        let addNewButtonComponent;
-        if (accessToken.length > 0) {
-            addNewButtonComponent = (
+        const { catalogList, handleActionAddNew, handleDeleteCatalog, handleDisplayPlaylist } = this.props;
+        let addNewButtonComponent = (
                 <li className="catalog-item">                                                                                   
                     <div className="btn btn-outline-primary btn-sm add-new-btn btn-sets" onClick={handleActionAddNew}>Add new</div>
                 </li>
             );
-        }
 
         const catalogComponent = (playlist, i, id, title) => {
             return (
@@ -55,7 +52,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleDisplayCatalogs: () => dispatch(fetchUserCatalogs()),
         handleActionAddNew: () => dispatch({type: 'SHOW_ADD_NEW_CATALOG', showAddNewCatalogWindow: true}),
         handleDeleteCatalog: (playlistId) => {
             dispatch(deleteCatalog(playlistId));
