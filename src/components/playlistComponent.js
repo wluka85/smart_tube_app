@@ -21,7 +21,7 @@ class PlaylistComponent extends Component {
                         <div className="btn btn-outline-primary btn-sm btn-sets" onClick={() => {handleDeletePlaylistItem(playlistElementId, currentPlaylist)}}>
                             <i className="fas fa-trash-alt"/>
                         </div>
-                        <div className="btn btn-outline-primary btn-sm btn-sets" onClick={() => {handlePlayVideo(video)}}>
+                        <div className="btn btn-outline-primary btn-sm btn-sets" data-toggle="modal" data-target="#detailed-video" onClick={() => {handlePlayVideo(video)}}>
                             <i className="fas fa-play" id="play-button"/>
                         </div>
                     </div>
@@ -38,7 +38,7 @@ class PlaylistComponent extends Component {
             );
 
         return (
-            <div className="col-md-3 col-lg-2 sidebar right-sidebar">
+            <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2 sidebar right-sidebar">
                 <div className="playlist-option">
                     <div className="btn btn-primary btn-sm catalog-name btn-sets">{currentPlaylist.title}</div>
                     <div className="btn btn-outline-primary btn-sm btn-sets" onClick={() => handlePlayPlaylist(currentPlaylist)}>
@@ -70,6 +70,6 @@ const mapDispatchToProps = (dispatch) => {
         handlePlayPlaylist: (playlist) => dispatch(openPlaylist(playlist))
 
     };
-}
+};
 
 export default PlaylistComponent = connect(mapStateToProps, mapDispatchToProps)(PlaylistComponent);
