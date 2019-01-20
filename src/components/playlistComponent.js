@@ -40,7 +40,7 @@ class PlaylistComponent extends Component {
         return (
             <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2 sidebar right-sidebar">
                 <div className="playlist-option">
-                    <div className="btn btn-primary btn-sm catalog-name btn-sets">{currentPlaylist.title}</div>
+                    <button className="btn btn-primary btn-sm catalog-name btn-sets" disabled>{currentPlaylist.title}</button>
                     <div className="btn btn-outline-primary btn-sm btn-sets" onClick={() => handlePlayPlaylist(currentPlaylist)}>
                         <i className="fas fa-play"/>
                     </div>
