@@ -36,7 +36,7 @@ class DetailedVideoComponent extends Component {
     const { videoId, showVideo, playlistId } = this.props;
     
     if (this.isPlaylistChosen(playlistId, showVideo)) {
-        this.url = `http://www.youtube.com/embed?listType=playlist&list=${playlistId}`;
+        this.url = `https://www.youtube.com/embed?listType=playlist&list=${playlistId}`;
         return this.renderFull();
     } else if (this.isNotVideoChosen(showVideo)) {
         return null;
