@@ -43,6 +43,7 @@ const mapDispatchToProps = (dispatch) => {
 
     return {
         handleUserLogin: (response) => {
+            console.log(response)
             dispatch({type: 'USER_LOGGED_IN', message: '', accessToken: response.accessToken, redirect: '/log'});
             dispatch(fetchUserCatalogs());
         },
