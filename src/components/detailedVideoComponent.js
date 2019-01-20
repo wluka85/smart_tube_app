@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {closeVideo} from '../actions/videoActions';
+import Modal from "react-bootstrap/es/Modal";
+
 
 class DetailedVideoComponent extends Component {
 
   renderFull() {
-    const { title, description, handleCloseVideo } = this.props;
+    const { title, description, handleCloseVideo, showVideo } = this.props;
+
     return (
-      <div className='modal' onClick={() => handleCloseVideo()}>
-        <div className="video-container">
-          <div className="embed">
-            <iframe className="embed-item video-window" src={this.url} title="video" allowFullScreen frameBorder="0" ></iframe>
-          </div>
-          <div className="details">
-            <div>{title}</div>
-            <div>{description.slice(0,200)}</div>
-          </div>
-        </div>
-      </div>
+      <Modal show={showVideo} onHide={handleCloseVideo} animation={false} bsSize="large">
+            <Modal.Header>
+              <Modal.Title>{title}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <iframe className="embed-item video-window container-fluid" src={this.url} title="video" allowFullScreen frameBorder="0" width="420" height="500" />
+            </Modal.Body>
+            <Modal.Footer>
+              <p>{description.slice(0,200)}</p>
+            </Modal.Footer>
+      </Modal>
     );
   }
 

@@ -6,6 +6,9 @@ import {connect} from 'react-redux';
 import ItemsListComponent from "./components/itemsListComponent";
 import PlaylistComponent from "./components/playlistComponent";
 import HeaderContainer from './components/headerContainer';
+import withLoading from "./components/hoc/withLoading";
+import DetailedVideoComponent from "./components/detailedVideoComponent";
+const DetailedVideoComponentWithLoading = withLoading(DetailedVideoComponent)
 
 
 export class AppLoggedIn extends Component {
@@ -27,6 +30,7 @@ export class AppLoggedIn extends Component {
               <PlaylistComponent/>
           </div>
           <CatalogCreatorComponent/>
+          <DetailedVideoComponentWithLoading/>
       </div>
     );
   }
