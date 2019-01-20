@@ -1,6 +1,10 @@
+body {
+    overflow-x: hidden;
+}
+
 .sidebar {
     position: fixed;
-    top: 80px;
+    top: 70px;
     z-index: 1000;
     overflow-x: hidden;
     overflow-y: auto;
@@ -30,7 +34,6 @@
 .playlist-option {
     display: flex;
     flex-direction: row;
-    margin-bottom: 10px;
 }
 
 .nav-sidebar {
@@ -38,15 +41,7 @@
     flex-direction: column;
 }
 
-.catalog-name {
-    width: 100%;
-}
-
-.add-new-btn {
-    width: 100%;
-}
-
-.btn-fluid {
+.catalog-name, .btn-fluid, .add-new-btn {
     width: 100%;
 }
 
@@ -58,6 +53,19 @@
     margin: 2px;
 }
 
-.playlist-card {
+.playlist-card, .playlist-option {
     margin-bottom: 10px;
+}
+
+.item-list {
+    margin-top: 70px;
+}
+
+.item-result {
+    margin-bottom: 10px;
+    padding: 6px;
+}
+
+.modal-backdrop {
+    opacity: 0.5;
 }
