@@ -5,6 +5,8 @@ import ItemsListComponent from './components/itemsListComponent';
 import HeaderContainer from './components/headerContainer';
 import withLoading from "./components/hoc/withLoading";
 import DetailedVideoComponent from "./components/detailedVideoComponent";
+import MessageComponent from "./components/messageComponent";
+
 const DetailedVideoComponentWithLoading = withLoading(DetailedVideoComponent)
 
 export class App extends Component {
@@ -23,6 +25,7 @@ export class App extends Component {
                 <ItemsListComponent/>
             </div>
           <DetailedVideoComponentWithLoading/>
+          <MessageComponent/>
       </div>
     );
   }

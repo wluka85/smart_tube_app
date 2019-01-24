@@ -8,6 +8,7 @@ import PlaylistComponent from "./components/playlistComponent";
 import HeaderContainer from './components/headerContainer';
 import withLoading from "./components/hoc/withLoading";
 import DetailedVideoComponent from "./components/detailedVideoComponent";
+import MessageComponent from "./App";
 const DetailedVideoComponentWithLoading = withLoading(DetailedVideoComponent)
 
 
@@ -31,6 +32,7 @@ export class AppLoggedIn extends Component {
           </div>
           <CatalogCreatorComponent/>
           <DetailedVideoComponentWithLoading/>
+          <MessageComponent/>
       </div>
     );
   }

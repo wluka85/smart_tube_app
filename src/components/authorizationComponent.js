@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import LogoutButton from "../view/components/logoutButton";
 import {fetchUserCatalogs} from "../actions/catalogAction";
+import {handleDisplayMessage} from "../actions/messageComponentActions";
 
 class AuthorizationComponent extends Component {
 
@@ -47,7 +48,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({type: 'USER_LOGGED_IN', message: '', accessToken: response.accessToken, redirect: '/log'});
             dispatch(fetchUserCatalogs());
         },
-        handleLoginFailure: () => dispatch({type: 'USER_NOT_LOGGED_IN', message: 'Ops! Wrong Login or Password'}),
+        handleLoginFailure: () => dispatch(handleDisplayMessage('Ops! Wrong Login or Password')),
         handleUserLogout: () => dispatch({type: 'USER_LOGGED_OUT', accessToken: '', message: '', redirect: '/'}),
     };
 };
