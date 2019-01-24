@@ -16,12 +16,14 @@ export default class Video {
 
 export const getVideoList = (videos) => {
     let videoList = [];
-    videos.forEach(element => {
-        let result = element.snippet;
-        let video = new Video(result.channelId, result.channelTitle,
-            result.description, result.publishedAt, result.title, result.thumbnails.high.url, result.resourceId.videoId, element.id);
-        videoList.push(video);
-    })
+    if (videos) {
+        videos.forEach(element => {
+            let result = element.snippet;
+            let video = new Video(result.channelId, result.channelTitle,
+                result.description, result.publishedAt, result.title, result.thumbnails.high.url, result.resourceId.videoId, element.id);
+            videoList.push(video);
+        });
+    }
 
     return videoList;
 }
