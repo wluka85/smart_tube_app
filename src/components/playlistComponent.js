@@ -15,7 +15,10 @@ class PlaylistComponent extends Component {
             const {title, imageURL, playlistElementId} = video;
             return (
                 <li className="card playlist-card" key={i}>
-                    <img src={imageURL} alt={title} className="card-img-top img-fluid"/>
+                    <div className='thumbnail-container' onClick={() => {handlePlayVideo(video)}}>
+                        <i className="fab fa-youtube youtube-watermark"></i>
+                        <img src={imageURL} alt={title} className="card-img-top img-fluid"/>
+                    </div>
                     <div className="card-body playlist-item">
                         <div className="card-title"> {title}</div>
                         <div className="btn btn-outline-primary btn-sm btn-sets" onClick={() => {handleDeletePlaylistItem(playlistElementId, currentPlaylist)}}>

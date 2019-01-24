@@ -2,6 +2,25 @@ body {
     overflow-x: hidden;
 }
 
+.thumbnail-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.youtube-watermark {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    font-size: 3em;
+    opacity: 0.5;
+    color: rgb(175, 175, 175);
+}
+
+.youtube-watermark:hover {
+    opacity: 1;
+    color: rgb(62, 118, 223);  
+}
+
 .sidebar {
     position: fixed;
     top: 70px;
@@ -70,6 +89,10 @@ body {
 
 .modal-backdrop {
     opacity: 0.5;
+}
+
+.img-responsive:hover {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 767px) {
