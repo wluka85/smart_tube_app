@@ -8,7 +8,7 @@ const userCatalogsFetched = catalogs => ({
 });
 
 const api = 'https://www.googleapis.com/youtube/v3/';
-const urlSearchCatalogs = 'playlists?part=snippet&mine=true';
+const urlSearchCatalogs = 'playlists?part=snippet&maxResults=30&mine=true';
 
 export const fetchUserCatalogs = () => (dispatch, getState) => {
 
