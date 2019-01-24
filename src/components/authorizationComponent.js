@@ -48,7 +48,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({type: 'USER_LOGGED_IN', message: '', accessToken: response.accessToken, redirect: '/log'});
             dispatch(fetchUserCatalogs());
         },
-        handleLoginFailure: () => dispatch(handleDisplayMessage('Ops! Wrong Login or Password')),
+        handleLoginFailure: () => dispatch(handleDisplayMessage('Wrong Login or Password!')),
         handleUserLogout: () => dispatch({type: 'USER_LOGGED_OUT', accessToken: '', message: '', redirect: '/'}),
     };
 };
