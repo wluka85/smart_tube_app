@@ -12,7 +12,7 @@ export class ItemsListComponent extends Component {
   renderItemsList () {
     const {items, handleOpenVideo, handleAddToPlaylist, accessToken } = this.props;
     let componentClassName;
-    accessToken.length > 0 ? componentClassName = "offset-sm-4 col-sm-8 col-md-6 offset-md-3 offset-lg-2 col-lg-8 search-result" : componentClassName = "col-md-6 offset-md-3";
+    accessToken.length > 0 ? componentClassName = "offset-sm-4 col-sm-8 col-md-6 offset-md-3 search-result" : componentClassName = "col-md-8 offset-md-2";
 
     return (
         <div className={componentClassName}>

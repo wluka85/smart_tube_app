@@ -27,6 +27,7 @@ export const fetchSearchResults = (searchCriteria) => (dispatch, getState) => {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data)
       const videoList = getVideoList(data.items);
       dispatch(fetchResultsSuccess(videoList));
       console.log('items are', getState().searchReducer.items);

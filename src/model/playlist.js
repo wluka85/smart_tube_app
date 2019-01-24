@@ -31,7 +31,7 @@ export const getVideoList = (videos) => {
             result.description, 
             result.publishedAt, 
             result.title, 
-            result.thumbnails.default.url,
+            result.thumbnails.high.url,
             element.id.videoId);
         videoList.push(video);
     });
