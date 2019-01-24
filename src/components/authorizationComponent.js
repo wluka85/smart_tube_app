@@ -26,7 +26,6 @@ class AuthorizationComponent extends Component {
 
         return(
                 <React.Fragment>
-                    <div id='sign-in-message'>{ message }</div>
                     {googleButton}
                 </React.Fragment>
         )
@@ -44,7 +43,6 @@ const mapDispatchToProps = (dispatch) => {
 
     return {
         handleUserLogin: (response) => {
-            console.log(response)
             dispatch({type: 'USER_LOGGED_IN', message: '', accessToken: response.accessToken, redirect: '/log'});
             dispatch(fetchUserCatalogs());
         },
