@@ -2,7 +2,7 @@ import GoogleLogin from "react-google-login";
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import LogoutButton from "../view/components/logoutButton";
-import {fetchUserCatalogs} from "../actions/catalogAction";
+import { getUserCatalogsRequested } from "../actions/catalogAction";
 import {handleDisplayMessage} from "../actions/messageComponentActions";
 
 class AuthorizationComponent extends Component {
@@ -44,7 +44,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleUserLogin: (response) => {
             dispatch({type: 'USER_LOGGED_IN', message: '', accessToken: response.accessToken, redirect: '/log'});
-            dispatch(fetchUserCatalogs());
+            dispatch(getUserCatalogsRequested())
         },
         handleLoginFailure: () => dispatch(handleDisplayMessage('Wrong Login or Password!')),
         handleUserLogout: () => dispatch({type: 'USER_LOGGED_OUT', accessToken: '', message: '', redirect: '/'}),
