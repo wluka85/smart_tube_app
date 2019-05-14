@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
+// import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter } from 'react-router-dom';
@@ -10,10 +11,14 @@ import thunk from "redux-thunk";
 import AppLoggedIn from "./AppLoggedIn";
 import {Switch} from "react-router";
 import './css/mainWindow.css';
+import createSagaMiddleware from 'redux-saga';
+import { rootSaga } from './saga/rootSaga'
 
+const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk, sagaMiddleware));
 
+sagaMiddleware.run(rootSaga, store.dispatch, store.getState);
 
 ReactDOM.render(
   <Provider store={store}>
