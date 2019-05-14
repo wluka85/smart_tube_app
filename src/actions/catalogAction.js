@@ -2,31 +2,15 @@ import {getCatalogs} from "../model/playlist";
 import JSON from "circular-json";
 import {fetchCurrentPlaylist} from "./playlistAction";
 
-const userCatalogsFetched = catalogs => ({
+export const getUserCatalogsRequested = () => ({
+    type: 'GET_USER_CATALOGS_REQUESTED'
+})
+export const userCatalogsFetched = catalogs => ({
     type: "FETCH_CATALOGS_SUCCESS",
     catalogList: catalogs
 });
 
 const api = 'https://www.googleapis.com/youtube/v3/';
-const urlSearchCatalogs = 'playlists?part=snippet&maxResults=30&mine=true';
-
-export const fetchUserCatalogs = () => (dispatch, getState) => {
-
-    fetch(api + urlSearchCatalogs,  {
-        method: 'GET',
-        headers: new Headers({ 'Authorization': 'Bearer ' + encodeURIComponent(getState().authReducer.accessToken) })
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            let catalogs = getCatalogs(data.items);
-            const currentPlaylist = getState().playlistReducer.currentPlaylist;
-            if (currentPlaylist === '') {
-                dispatch(fetchCurrentPlaylist(catalogs[0]));
-            }
-
-            dispatch(userCatalogsFetched(catalogs));
-        });
-};
 
 export const fetchAddCatalog = (title, description) => (dispatch, getState) => {
 
@@ -45,7 +29,7 @@ export const fetchAddCatalog = (title, description) => (dispatch, getState) => {
         .then((response) => response.json())
         .then(() => {
             dispatch({type: 'SHOW_ADD_NEW_CATALOG', showAddNewCatalogWindow: false});
-            dispatch(fetchUserCatalogs());
+            // dispatch(fetchUserCatalogs());
         })
 };
 
@@ -55,7 +39,7 @@ export const deleteCatalog = (playlistId) => (dispatch, getState) => {
         headers: new Headers({'Authorization': 'Bearer ' + encodeURIComponent(getState().authReducer.accessToken)})
     })
         .then(response => {
-            dispatch(fetchUserCatalogs());
+            // dispatch(fetchUserCatalogs());
         })
 
 }
