@@ -3,12 +3,17 @@ import JSON from "circular-json";
 import {fetchCurrentPlaylist} from "./playlistAction";
 
 export const getUserCatalogsRequested = () => ({
-    type: 'GET_USER_CATALOGS_REQUESTED'
+    type: 'GET_USER_CATALOGS_REQUESTED',
 })
 export const userCatalogsFetched = catalogs => ({
-    type: "FETCH_CATALOGS_SUCCESS",
-    catalogList: catalogs
+    type: "GET_USER_CATALOGS_SUCCESS",
+    catalogList: catalogs,
 });
+
+export const getUserCatalogsFailed = (errorMessage) => ({
+    type: 'GET_USER_CATALOGS_FAILED',
+    errorMessage,
+})
 
 const api = 'https://www.googleapis.com/youtube/v3/';
 
