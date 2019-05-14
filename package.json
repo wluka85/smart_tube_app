@@ -6,8 +6,10 @@
   "dependencies": {
     "bootstrap": "^4.2.1",
     "circular-json": "^0.5.9",
+    "es6-promise": "^4.2.6",
     "gapi-client": "0.0.3",
     "gh-pages": "^2.0.1",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
@@ -47,5 +49,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Senseinvader/smart_tube_app/issues"
+  },
+  "devDependencies": {
+    "babel-plugin-redux-saga": "^1.0.2"
   }
 }
