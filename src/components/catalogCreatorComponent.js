@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
-import {fetchAddCatalog} from "../actions/catalogAction";
+import {fetchAddCatalog, addUserCatalogRequested} from "../actions/catalogAction";
 import Modal from "react-bootstrap/es/Modal";
 import Button from "react-bootstrap/es/Button";
 
@@ -66,7 +66,9 @@ const mapDispatchToProps = (dispatch) => {
             const INDEX_INPUT_DESCRIPTION = 1;
             let title = event.target.querySelectorAll("input").item(INDEX_INPUT_TITLE).value;
             let description = event.target.querySelectorAll("input").item(INDEX_INPUT_DESCRIPTION).value;
-            dispatch(fetchAddCatalog(title, description));
+            dispatch({type: 'ADD_USER_CATALOG_REQUESTED',
+            title,
+            description});
         },
 
         handleClickUnselected: () => dispatch({type: 'SHOW_ADD_NEW_CATALOG', showAddNewCatalogWindow: false})
