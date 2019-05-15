@@ -1,35 +1,14 @@
-import {getVideoList} from "../model/playlist";
-
-export const fetchResultsBegin = (searchCriteria) => ({
-  type: 'FETCH_RESULTS_BEGIN',
-  searchCriteria
+export const getSearchResultsRequested = searchCriteria => ({
+  type: 'GET_SEARCH_RESULTS_REQUESTED',
+  searchCriteria,
 });
 
-export const fetchResultsSuccess = (results) => ({
-  type: 'FETCH_RESULTS_SUCCESS',
-  items: results
+export const getSearchResultsSuccess = videoList => ({
+  type: 'GET_SEARCH_RESULTS_SUCCESS',
+  items: videoList,
 });
 
-export const fetchResultsError = (error) => ({
-  type: 'FETCH_RESULTS_ERROR',
-  error
+export const getSearchResultsFailed = errorMessage => ({
+  type: 'GET_SEARCH_RESULTS_FAILED',
+  errorMessage,
 });
-
-export const fetchSearchResults = (searchCriteria) => (dispatch, getState) => {
-
-  const API_KEY = 'AIzaSyBYOluBSrsLsqs0xGpRPueAUsOujDYdECc';
-  const api = 'https://www.googleapis.com/youtube/v3/';
-  const urlSearchResults = `search?part=snippet&q=${searchCriteria}&maxResults=30&type=video&key=${API_KEY}&safeSearch=strict`;
-  dispatch(fetchResultsBegin(searchCriteria));
-
-  fetch(api + urlSearchResults,  {
-    method: 'GET'
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data)
-      const videoList = getVideoList(data.items);
-      dispatch(fetchResultsSuccess(videoList));
-      console.log('items are', getState().searchReducer.items);
-  });
-};
