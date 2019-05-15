@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
-import {deleteCatalog} from "../actions/catalogAction";
+import {deleteCatalog, deleteUserCatalogRequested} from "../actions/catalogAction";
 import {fetchCurrentPlaylist} from "../actions/playlistAction";
 
 class CatalogComponent extends Component {
@@ -54,7 +54,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleActionAddNew: () => dispatch({type: 'SHOW_ADD_NEW_CATALOG', showAddNewCatalogWindow: true}),
         handleDeleteCatalog: (playlistId) => {
-            dispatch(deleteCatalog(playlistId));
+            dispatch(deleteUserCatalogRequested(playlistId));
         },
         handleDisplayPlaylist: (playlist) => {
             dispatch(fetchCurrentPlaylist(playlist));

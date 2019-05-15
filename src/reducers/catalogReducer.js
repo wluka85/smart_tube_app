@@ -25,7 +25,16 @@ const catalogReducer = (state=initialState, action) => {
             return { ...state, catalogList: tempCatalogList, isFetching: false };
 
         case 'ADD_USER_CATALOG_FAILED':
-            return { ...state, errorMessage: action.errorMessage, isFetching: false }
+            return { ...state, errorMessage: action.errorMessage, isFetching: false };
+
+        case 'DELETE_USER_CATALOG_REQUESTED':
+            return { ...state, isFetching: true };
+        
+        case 'DELETE_USER_CATALOG_SUCCESS':
+            return { ...state, catalogList: action.catalogList, isFetching: false };
+
+        case 'DELETE_USER_CATALOG_FAILED':
+            return { ...state, isFetching: false, errorMessage: action.errorMessage };
 
         case 'SHOW_ADD_NEW_CATALOG':
             return {...state, showAddNewCatalogWindow: action.showAddNewCatalogWindow};

@@ -28,15 +28,17 @@ export const addUserCatalogFailed = (errorMessage) => ({
     errorMessage,
 });
 
-const api = 'https://www.googleapis.com/youtube/v3/';
+export const deleteUserCatalogRequested = (playlistId) => ({
+    type: 'DELETE_USER_CATALOG_REQUESTED',
+    playlistId,
+});
 
-export const deleteCatalog = (playlistId) => (dispatch, getState) => {
-    fetch(api+ 'playlists?id=' + playlistId, {
-        method: 'DELETE',
-        headers: new Headers({'Authorization': 'Bearer ' + encodeURIComponent(getState().authReducer.accessToken)})
-    })
-        .then(response => {
-            // dispatch(fetchUserCatalogs());
-        })
+export const deleteUserCatalogSuccess = (catalogList) => ({
+    type: 'DELETE_USER_CATALOG_SUCCESS',
+    catalogList,
+});
 
-}
+export const deleteUserCatalogFailed = (errorMessage) => ({
+    type: 'DELETE_USER_CATALOG_FAILED',
+    errorMessage,
+});
