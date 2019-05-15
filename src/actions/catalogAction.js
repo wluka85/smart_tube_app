@@ -20,7 +20,7 @@ export const addUserCatalogRequested = (title, description) => ({
 
 export const addUserCatalogSuccess = (userCatalog) => ({
     type: 'ADD_USER_CATALOG_SUCCESS',
-    userCatalog,
+    catalog: userCatalog,
 });
 
 export const addUserCatalogFailed = (errorMessage) => ({

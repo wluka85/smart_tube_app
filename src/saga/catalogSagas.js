@@ -52,7 +52,7 @@ export function* deleteUserCatalog(dispatch, getState, action) {
       const { catalogList } = getState().catalogReducer;
       let tempCatalogList = JSON.parse(JSON.stringify(catalogList));
       tempCatalogList = tempCatalogList.filter((element) => element.id !== action.playlistId);
-      yield put (deleteUserCatalogSuccess(tempCatalogList));
+      yield put(deleteUserCatalogSuccess(tempCatalogList));
     }
   } catch {
 
