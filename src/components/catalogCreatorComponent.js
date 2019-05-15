@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
-import {fetchAddCatalog, addUserCatalogRequested} from "../actions/catalogAction";
 import Modal from "react-bootstrap/es/Modal";
 import Button from "react-bootstrap/es/Button";
 

@@ -8,7 +8,7 @@ import {handleDisplayMessage} from "../actions/messageComponentActions";
 class AuthorizationComponent extends Component {
 
     render() {
-        const { handleUserLogin, handleLoginFailure, handleUserLogout, message, accessToken } = this.props;
+        const { handleUserLogin, handleLoginFailure, handleUserLogout, accessToken } = this.props;
         let googleButton;
 
             if (accessToken.length === 0) {
@@ -35,7 +35,6 @@ class AuthorizationComponent extends Component {
 const mapStateToProps = (state) => {
     return {
         accessToken: state.authReducer.accessToken,
-        message: state.authReducer.message,
     };
 }
 
