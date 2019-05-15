@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {fetchSearchResults} from '../actions/searchActions';
+import { getSearchResultsRequested } from '../actions/searchActions';
 
 export class SearchBarComponent extends Component {
 
   render() {
-    const {onSubmit, searchCriteria} = this.props;
-    console.log('search ', searchCriteria);
+    const { onSubmit } = this.props;
     return (
       <div className="">
         <form className="form-inline w-100"
@@ -16,9 +15,7 @@ export class SearchBarComponent extends Component {
             e.target.querySelector('input').value = '';
           }}>
           <input className="form-control mr-sm-2" type="text" placeholder='Search'/>
-          {/*<div className="input-group-append">*/}
-            <input className="btn btn-outline-primary my-2 my-sm-0" type="submit" value="Search"/>
-          {/*</div>*/}
+          <input className="btn btn-outline-primary my-2 my-sm-0" type="submit" value="Search"/>
         </form>
                 
       </div>
@@ -28,14 +25,13 @@ export class SearchBarComponent extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    searchCriteria: state.searchReducer.searchCriteria,
     items: state.searchReducer.items
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSubmit: (e)=> dispatch(fetchSearchResults(e.target.querySelector('input').value))
+    onSubmit: (e)=> dispatch(getSearchResultsRequested(e.target.querySelector('input').value))
   }
 }
 
